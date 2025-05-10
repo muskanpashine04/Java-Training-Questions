@@ -1,0 +1,366 @@
+import java.util.Scanner;
+
+public class MethodsUserInput {
+
+    static Scanner scanner = new Scanner(System.in); // Initialize Scanner once, and make it static
+
+    // 1. Write a method that takes an integer from the user and returns it.
+    static int getIntegerFromUser() {
+        System.out.print("Enter an integer: ");
+        return scanner.nextInt();
+    }
+
+    // 2. Define a method that receives a floating-point number from the user and returns it.
+    static double getDoubleFromUser() {
+        System.out.print("Enter a floating-point number: ");
+        return scanner.nextDouble();
+    }
+
+    // 3. Create a method that takes two integers from the user and print their sum.
+    static void printSumOfTwoIntegers() {
+        System.out.print("Enter the first integer: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second integer: ");
+        int num2 = scanner.nextInt();
+        System.out.println("Sum: " + (num1 + num2));
+    }
+
+    // 4. Write a method that accepts two decimal numbers from the user and returns their difference.
+    static double getDifferenceOfTwoDoubles() {
+        System.out.print("Enter the first decimal number: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("Enter the second decimal number: ");
+        double num2 = scanner.nextDouble();
+        return num1 - num2;
+    }
+
+    // 5. Implement a method that receives two numbers from the user and prints their product.
+    static void printProductOfTwoNumbers() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.println("Product: " + (num1 * num2));
+    }
+
+    // 6. Define a method that takes a number from the user and returns its double.
+    static int getDoubleOfNumber() {
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        return number * 2;
+    }
+
+    // 7. Create a method that accepts an integer from the user and returns its square.
+    static int getSquareOfNumber() {
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        return number * number;
+    }
+
+    // 8. Write a method that receives two numbers from the user and prints their average.
+    static void printAverageOfTwoNumbers() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.println("Average: " + (double) (num1 + num2) / 2);
+    }
+
+    // 9. Implement a method that takes three numbers from the user and returns their sum.
+    static int getSumOfThreeNumbers() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+        return num1 + num2 + num3;
+    }
+
+    // 10. Write a method that receives a decimal value from the user and returns it multiplied by 10.
+    static double getNumberMultipliedByTen() {
+        System.out.print("Enter a decimal value: ");
+        double number = scanner.nextDouble();
+        return number * 10;
+    }
+
+    // 11. Create a method that takes two integers from the user and print their division result.
+    static void printDivisionOfTwoIntegers() {
+        System.out.print("Enter the numerator: ");
+        int numerator = scanner.nextInt();
+        System.out.print("Enter the denominator: ");
+        int denominator = scanner.nextInt();
+        if (denominator != 0) {
+            System.out.println("Division: " + (numerator / denominator));
+        } else {
+            System.out.println("Cannot divide by zero.");
+        }
+    }
+
+    // 12. Implement a method that receives a number from the user and prints it increased by 5.
+    static void printNumberIncreasedByFive() {
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        System.out.println("Result: " + (number + 5));
+    }
+
+    // 13. Define a method that takes a number from the user and returns its cube.
+    static int getCubeOfNumber() {
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        return number * number * number;
+    }
+
+    // 14. Write a method that accepts two numbers from the user and returns their modulus.
+    static int getModulusOfTwoNumbers() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        return num1 % num2;
+    }
+
+    // 15. Create a method that takes two numbers from the user and returns their subtraction result.
+    static int getSubtractionOfTwoNumbers() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        return num1 - num2;
+    }
+
+    // 16. Implement a method that receives three numbers from the user and returns their product.
+    static int getProductOfThreeNumbers() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+        return num1 * num2 * num3;
+    }
+
+    // 17. Define a method that takes a number from the user and returns it divided by 2.
+    static double getNumberDividedByTwo() {
+        System.out.print("Enter a number: ");
+        double number = scanner.nextDouble();
+        return number / 2;
+    }
+
+    // 18. Write a method that accepts two floating-point numbers from the user and returns their sum.
+    static double getSumOfTwoFloatingPointNumbers() {
+        System.out.print("Enter the first floating-point number: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("Enter the second floating-point number: ");
+        double num2 = scanner.nextDouble();
+        return num1 + num2;
+    }
+
+    // 19. Implement a method that receives an integer from the user and returns its remainder when divided by 3.
+    static int getRemainderWhenDividedByThree() {
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        return number % 3;
+    }
+
+    // 20. Define a method that takes an integer from the user and returns it multiplied by itself.
+    static int getNumberMultipliedByItself() {
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        return number * number;
+    }
+
+    // 21. Write a method that receives three decimal numbers from the user and returns their average.
+    static double getAverageOfThreeDecimalNumbers() {
+        System.out.print("Enter the first decimal number: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("Enter the second decimal number: ");
+        double num2 = scanner.nextDouble();
+        System.out.print("Enter the third decimal number: ");
+        double num3 = scanner.nextDouble();
+        return (num1 + num2 + num3) / 3;
+    }
+
+    // 22. Create a method that takes two numbers from the user and prints the first number raised to the power of the second.
+    static void printFirstNumberToThePowerOfSecond() {
+        System.out.print("Enter the base number: ");
+        int base = scanner.nextInt();
+        System.out.print("Enter the exponent number: ");
+        int exponent = scanner.nextInt();
+        System.out.println("Result: " + Math.pow(base, exponent));
+    }
+
+    // 23. Write a method that receives a decimal number from the user and prints its half value.
+    static void printHalfOfDecimalNumber() {
+        System.out.print("Enter a decimal number: ");
+        double number = scanner.nextDouble();
+        System.out.println("Half value: " + (number / 2));
+    }
+
+    // 24. Create a method that takes two integers from the user and returns their sum multiplied by 2.
+    static int getSumMultipliedByTwo() {
+        System.out.print("Enter the first integer: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second integer: ");
+        int num2 = scanner.nextInt();
+        return (num1 + num2) * 2;
+    }
+
+    // 25. Define a method that receives three numbers from the user and returns the sum of their squares.
+    static int getSumOfSquares() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+        return (num1 * num1) + (num2 * num2) + (num3 * num3);
+    }
+
+    // 26. Implement a method that takes two numbers from the user and returns their product divided by their sum.
+    static double getProductDividedBySum() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        if (num1 + num2 != 0) {
+            return (double) (num1 * num2) / (num1 + num2);
+        } else {
+            System.out.println("Sum is zero, cannot divide.");
+            return Double.NaN; // Return NaN (Not a Number) to indicate an error
+        }
+    }
+
+    //  27. Create a method that receives two numbers from the user and print the difference between their squares.
+    static void printDifferenceOfSquares() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.println("Difference of squares: " + ((num1 * num1) - (num2 * num2)));
+    }
+
+    // 28. Define a method that takes a number from the user and returns the result of subtracting it from 100.
+    static int getResultOfSubtractingFrom100() {
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        return 100 - number;
+    }
+
+    // 29. Write a method that takes two numbers from the user and returns the first number doubled plus the second number tripled.
+    static int getFirstDoubledPlusSecondTripled() {
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        return (2 * num1) + (3 * num2);
+    }
+
+    // 30. Implement a method that receives two numbers from the user and prints their harmonic mean.  (Formula: 2 * (a * b) / (a + b))
+    static void printHarmonicMean() {
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();  // Use double for accurate harmonic mean
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+        if (num1 + num2 != 0) {
+            double harmonicMean = 2 * (num1 * num2) / (num1 + num2);
+            System.out.printf("Harmonic Mean: %.2f\n", harmonicMean);
+        } else {
+            System.out.println("Sum is zero, cannot calculate harmonic mean.");
+        }
+    }
+
+    public static void main(String[] args) {
+        // 1.
+        System.out.println("Entered integer: " + getIntegerFromUser());
+
+        // 2.
+        System.out.println("Entered decimal: " + getDoubleFromUser());
+
+        // 3.
+        printSumOfTwoIntegers();
+
+        // 4.
+        System.out.println("Difference: " + getDifferenceOfTwoDoubles());
+
+        // 5.
+        printProductOfTwoNumbers();
+
+        // 6.
+        System.out.println("Double: " + getDoubleOfNumber());
+
+        // 7.
+        System.out.println("Square: " + getSquareOfNumber());
+
+        // 8.
+        printAverageOfTwoNumbers();
+
+        // 9.
+        System.out.println("Sum of three numbers: " + getSumOfThreeNumbers());
+
+        // 10.
+        System.out.println("Result: " + getNumberMultipliedByTen());
+
+        // 11.
+        printDivisionOfTwoIntegers();
+
+        // 12.
+        printNumberIncreasedByFive();
+
+        // 13.
+        System.out.println("Cube: " + getCubeOfNumber());
+
+        // 14.
+        System.out.println("Modulus: " + getModulusOfTwoNumbers());
+
+        // 15.
+        System.out.println("Subtraction: " + getSubtractionOfTwoNumbers());
+
+        // 16.
+        System.out.println("Product of three numbers: " + getProductOfThreeNumbers());
+
+        // 17.
+        System.out.println("Result: " + getNumberDividedByTwo());
+
+        // 18.
+        System.out.println("Sum: " + getSumOfTwoFloatingPointNumbers());
+
+        // 19.
+        System.out.println("Remainder: " + getRemainderWhenDividedByThree());
+
+        // 20.
+        System.out.println("Result: " + getNumberMultipliedByItself());
+
+        // 21.
+        System.out.println("Average: " + getAverageOfThreeDecimalNumbers());
+
+        // 22.
+        printFirstNumberToThePowerOfSecond();
+
+        // 23.
+        printHalfOfDecimalNumber();
+
+        // 24.
+        System.out.println("Result: " + getSumMultipliedByTwo());
+
+        // 25.
+        System.out.println("Sum of squares: " + getSumOfSquares());
+
+        // 26.
+        System.out.println("Result: " + getProductDividedBySum());
+
+        // 27.
+        printDifferenceOfSquares();
+
+        // 28.
+        System.out.println("Result: " + getResultOfSubtractingFrom100());
+
+        // 29.
+        System.out.println("Result: " + getFirstDoubledPlusSecondTripled());
+
+         // 30.
+        printHarmonicMean();
+
+        scanner.close(); // Close the scanner
+    }
+}
