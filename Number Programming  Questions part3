@@ -1,0 +1,143 @@
+import java.util.Scanner;
+
+public class NumberTypeChecker {
+
+    // Helper function to reverse a number
+    static int reverseNumber(int num) {
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return reversed;
+    }
+
+    // Helper function to count digits in a number
+    static int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    // Helper function to calculate the power of a number
+    static int power(int base, int exp) {
+        int result = 1;
+        for (int i = 0; i < exp; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
+
+
+    // 31. WAP to swap first and last digit of a number
+    static int swapFirstAndLastDigit(int num) {
+        if (num < 10) return num; // Numbers less than 10 have only one digit
+        int lastDigit = num % 10;
+        int digits = countDigits(num);
+        int firstDigit = num / power(10, digits - 1);
+        int middleDigits = num % power(10, digits - 1) / 10;
+        return lastDigit * power(10, digits - 1) + middleDigits * 10 + firstDigit;
+    }
+
+    // 32. WAP to calculate the sum of alternate digits in a number
+    static int sumOfAlternateDigits(int num) {
+        int sum = 0;
+        int count = 0;
+        while (num != 0) {
+            if (count % 2 == 0) {
+                sum += num % 10;
+            }
+            num /= 10;
+            count++;
+        }
+        return sum;
+    }
+
+    // 33. WAP to check whether the number is duck number
+    static boolean isDuckNumber(int number) {
+        String numStr = String.valueOf(number);
+        // A number is a duck number if it contains 0 and doesn't start with 0.
+        if (numStr.charAt(0) == '0') {
+            return false;
+        }
+        for (int i = 1; i < numStr.length(); i++) {
+            if (numStr.charAt(i) == '0') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 34. WAP to check if a number is a Buzz number
+    static boolean isBuzzNumber(int number) {
+        // A number is a Buzz number if it is divisible by 7 or its last digit is 7.
+        if (number % 7 == 0 || number % 10 == 7) {
+            return true;
+        }
+        return false;
+    }
+
+    // 35. WAP to check if a number is a Magic Number
+    static boolean isMagicNumber(int number) {
+        // A number is a magic number if the sum of its digits repeatedly calculated until a single digit is 1.
+        int sum = number;
+        while (sum > 9) {
+            int tempSum = 0;
+            while (sum > 0) {
+                tempSum += sum % 10;
+                sum /= 10;
+            }
+            sum = tempSum;
+        }
+        return sum == 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        // 31. Swap first and last digit
+        System.out.print("Enter a number to swap its first and last digits: ");
+        int num31 = scanner.nextInt();
+        System.out.println("Number with swapped first and last digits: " + swapFirstAndLastDigit(num31));
+
+        // 32. Sum of alternate digits
+        System.out.print("Enter a number to calculate the sum of its alternate digits: ");
+        int num32 = scanner.nextInt();
+        System.out.println("Sum of alternate digits of " + num32 + " is: " + sumOfAlternateDigits(num32));
+
+        // 33. Duck Number
+        System.out.print("Enter a number to check if it is a Duck number: ");
+        int num1 = scanner.nextInt();
+        if (isDuckNumber(num1)) {
+            System.out.println(num1 + " is a Duck number.");
+        } else {
+            System.out.println(num1 + " is not a Duck number.");
+        }
+
+        // 34. Buzz Number
+        System.out.print("Enter a number to check if it is a Buzz number: ");
+        int num2 = scanner.nextInt();
+        if (isBuzzNumber(num2)) {
+            System.out.println(num2 + " is a Buzz number.");
+        } else {
+            System.out.println(num2 + " is not a Buzz number.");
+        }
+
+        // 35. Magic Number
+        System.out.print("Enter a number to check if it is a Magic number: ");
+        int num3 = scanner.nextInt();
+        if (isMagicNumber(num3)) {
+            System.out.println(num3 + " is a Magic number.");
+        } else {
+            System.out.println(num3 + " is not a Magic number.");
+        }
+
+        scanner.close();
+    }
+}
