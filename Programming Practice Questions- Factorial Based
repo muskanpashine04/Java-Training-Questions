@@ -1,0 +1,172 @@
+import java.util.Scanner;
+
+public class FactorialProblems {
+
+    // Helper function to calculate factorial
+    static long factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    // 6. Function to return factorial
+    static int factorialInt(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    // 1. Factorial of a number
+    static void printFactorial(int n) {
+        long fact = factorial(n);
+        System.out.println("Factorial of " + n + " is: " + fact);
+    }
+
+    // 2. Print all factorials from 1 to n
+    static void printFactorialsInRange(int n) {
+        for (int i = 1; i <= n; i++) {
+            long fact = factorial(i);
+            System.out.println(i + "! = " + fact);
+        }
+    }
+
+    // 3. Check if a number is a Strong Number
+    static boolean isStrongNumber(int num) {
+        int originalNum = num;
+        long sumOfFactorials = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sumOfFactorials += factorial(digit);
+            num /= 10;
+        }
+        return sumOfFactorials == originalNum;
+    }
+
+    // 4. Print first n factorial numbers
+    static void printFirstNFactorials(int n) {
+        for (int i = 0; i < n; i++) { // Changed loop start to 0 to match the problem description
+            long fact = factorial(i); // Calculate factorial of i
+            System.out.println(fact);
+        }
+    }
+
+    // 5. Count trailing zeros in a factorial
+    static int countTrailingZeros(int n) {
+        int count = 0;
+        for (int i = 5; n / i >= 1; i *= 5) {
+            count += n / i;
+        }
+        return count;
+    }
+
+    // 7. Print factorial using recursion
+    static long recursiveFactorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * recursiveFactorial(n - 1);
+    }
+
+     // 8. Check if the factorial of n is even or odd
+    static void checkFactorialEvenOdd(int n) {
+        if (n >= 1) { // n! is even for n >= 2, odd only for n = 0 and n=1.
+            System.out.println(n + "! is even");
+        } else {
+            System.out.println(n + "! is odd"); // Corrected: 0! and 1! are odd.
+        }
+    }
+
+    // 9. Print factorial table
+    static void printFactorialTable(int n) {
+        for (int i = 1; i <= n; i++) {
+            long fact = factorial(i);
+            System.out.println(i + " x " + factorialInt(i-1) + " = " + fact);
+        }
+    }
+
+    // 10. Reverse factorial
+    static void reverseFactorial(int num) {
+        int n = 1;
+        long fact = 1;
+        while (fact < num) {
+            fact *= n;
+            n++;
+        }
+        if (fact == num) {
+            System.out.println(num + " = " + (n-1) + "! = Yes");
+        } else {
+            System.out.println(num + " = No");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Factorial of a number
+        System.out.print("Enter a number to calculate its factorial: ");
+        int num1 = scanner.nextInt();
+        printFactorial(num1);
+
+        // 2. Print all factorials from 1 to n
+        System.out.print("Enter a number to print factorials from 1 to n: ");
+        int num2 = scanner.nextInt();
+        printFactorialsInRange(num2);
+
+        // 3. Check if a number is a Strong Number
+        System.out.print("Enter a number to check if it is a Strong number: ");
+        int num3 = scanner.nextInt();
+        if (isStrongNumber(num3)) {
+            System.out.println(num3 + " is a Strong Number");
+        } else {
+            System.out.println(num3 + " is not a Strong Number");
+        }
+
+        // 4. Print first n factorial numbers
+        System.out.print("Enter n to print the first n factorial numbers: ");
+        int num4 = scanner.nextInt();
+        printFirstNFactorials(num4);
+
+        // 5. Count trailing zeros in a factorial
+        System.out.print("Enter a number to count trailing zeros in its factorial: ");
+        int num5 = scanner.nextInt();
+        System.out.println("Trailing zeros in " + num5 + "! are: " + countTrailingZeros(num5));
+
+        // 6. Function to return factorial
+        System.out.print("Enter a number to calculate its factorial using factorialInt: ");
+        int num6 = scanner.nextInt();
+        System.out.println("Factorial of " + num6 + " is: " + factorialInt(num6));
+
+        // 7. Print factorial using recursion
+        System.out.print("Enter a number to calculate its factorial recursively: ");
+        int num7 = scanner.nextInt();
+        System.out.println("Factorial of " + num7 + " is: " + recursiveFactorial(num7));
+
+        // 8. Check if the factorial of n is even or odd
+        System.out.print("Enter a number to check if its factorial is even or odd: ");
+        int num8 = scanner.nextInt();
+        checkFactorialEvenOdd(num8);
+
+        // 9. Print factorial table
+        System.out.print("Enter a number to print its factorial table: ");
+        int num9 = scanner.nextInt();
+        printFactorialTable(num9);
+
+        // 10. Reverse factorial
+        System.out.print("Enter a number to check if it is a factorial: ");
+        int num10 = scanner.nextInt();
+        reverseFactorial(num10);
+
+        scanner.close();
+    }
+}
+
