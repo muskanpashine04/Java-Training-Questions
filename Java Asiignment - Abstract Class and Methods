@@ -1,0 +1,109 @@
+import java.util.Scanner;
+
+// 1. Create an abstract class 'Shape' with an abstract method 'area()'. Implement two subclasses 'Circle' and 'Rectangle'.
+abstract class Shape {
+    // Abstract method 'area()' - must be implemented by subclasses
+    public abstract double area();
+
+    // A non-abstract method that can be inherited by subclasses
+    public void displayShapeName(String shapeName) {
+        System.out.println("This is a " + shapeName + ".");
+    }
+}
+
+// Subclass 'Circle' inheriting from 'Shape'
+class Circle extends Shape {
+    private double radius;
+
+    // Constructor for the Circle class
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Implementation of the 'area()' method for Circle
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Subclass 'Rectangle' inheriting from 'Shape'
+class Rectangle extends Shape {
+    private double length;
+    private double breadth;
+
+    // Constructor for the Rectangle class
+    public Rectangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    // Implementation of the 'area()' method for Rectangle
+    @Override
+    public double area() {
+        return length * breadth;
+    }
+}
+
+// 2. Create an abstract class 'Animal' with method 'sound()'. Create classes 'Dog' and 'Cat' that extend it and implement the sound method.
+abstract class Animal {
+    // Abstract method 'sound()' - must be implemented by subclasses
+    public abstract void sound();
+
+    // A non-abstract method in Animal
+     public void displayAnimalType(String animalType) {
+        System.out.println("This is a " + animalType);
+    }
+}
+
+// Subclass 'Dog' inheriting from 'Animal'
+class Dog extends Animal {
+    // Implementation of the 'sound()' method for Dog
+    @Override
+    public void sound() {
+        System.out.println("Dog barks: Woof Woof");
+    }
+}
+
+// Subclass 'Cat' inheriting from 'Animal'
+class Cat extends Animal {
+    // Implementation of the 'sound()' method for Cat
+    @Override
+    public void sound() {
+        System.out.println("Cat meows: Meow Meow");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Code for Question 1: Shape, Circle, and Rectangle
+        System.out.println("--- Shape and its Subclasses ---");
+        System.out.print("Enter the radius of the circle: ");
+        double circleRadius = scanner.nextDouble();
+        Circle circle = new Circle(circleRadius);
+        circle.displayShapeName("Circle"); // Calling non-abstract method
+        System.out.println("Circle Area: " + circle.area());
+
+        System.out.print("Enter the length of the rectangle: ");
+        double rectLength = scanner.nextDouble();
+        System.out.print("Enter the breadth of the rectangle: ");
+        double rectBreadth = scanner.nextDouble();
+        Rectangle rectangle = new Rectangle(rectLength, rectBreadth);
+        rectangle.displayShapeName("Rectangle");  // Calling non-abstract method
+        System.out.println("Rectangle Area: " + rectangle.area());
+
+        // Code for Question 2: Animal, Dog, and Cat
+        System.out.println("\n--- Animal and its Subclasses ---");
+        Dog dog = new Dog();
+        dog.displayAnimalType("Dog");
+        dog.sound(); // Calling the sound method of Dog
+
+        Cat cat = new Cat();
+        cat.displayAnimalType("Cat");
+        cat.sound(); // Calling the sound method of Cat
+
+        scanner.close();
+    }
+}
