@@ -1,0 +1,151 @@
+import java.util.Scanner;
+
+public class MethodOverloadingDemo {
+
+    // 1. Sum of numbers with method overloading
+    static class Adder {
+        // Method to find sum of two integers
+        int sum(int num1, int num2) {
+            return num1 + num2;
+        }
+
+        // Method to find sum of three integers
+        int sum(int num1, int num2, int num3) {
+            return num1 + num2 + num3;
+        }
+
+        // Method to find sum of two double values
+        double sum(double num1, double num2) {
+            return num1 + num2;
+        }
+    }
+
+    // 2. Area of different shapes
+    static class AreaCalculator {
+        // Method to calculate area of a circle
+        double calculateArea(double radius) {
+            return Math.PI * radius * radius;
+        }
+
+        // Method to calculate area of a rectangle
+        double calculateArea(double length, double width) {
+            return length * width;
+        }
+
+        // Method to calculate area of a triangle
+        double calculateArea(int base, int height) {
+            return 0.5 * base * height;
+        }
+    }
+
+    // 3. Print string and square of a number
+    static class Printer {
+        void print(String str, int num) {
+            System.out.println(str);
+            System.out.println("Square of " + num + " is " + (num * num));
+        }
+    }
+
+    // 4. Display book details
+    static class Book {
+        void displayDetails(String title, String author) {
+            System.out.println("Title: " + title);
+            System.out.println("Author: " + author);
+        }
+
+        void displayDetails(String title, String author, double price) {
+            System.out.println("Title: " + title);
+            System.out.println("Author: " + author);
+            System.out.println("Price: " + price);
+        }
+    }
+
+    // 5. Print different arrays
+    static class ArrayPrinter {
+        void display(int[] arr) {
+            System.out.print("Integer Array: ");
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+
+        void display(String[] arr) {
+            System.out.print("String Array: ");
+            for (String str : arr) {
+                System.out.print(str + " ");
+            }
+            System.out.println();
+        }
+
+        void display(int[][] arr) {
+            System.out.println("2D Integer Array:");
+            for (int[] row : arr) {
+                for (int num : row) {
+                    System.out.print(num + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Sum of numbers
+        System.out.println("1. Sum of Numbers:");
+        Adder adder = new Adder();
+        System.out.println("Sum of 2 and 3: " + adder.sum(2, 3));
+        System.out.println("Sum of 2, 3 and 4: " + adder.sum(2, 3, 4));
+        System.out.println("Sum of 2.5 and 3.5: " + adder.sum(2.5, 3.5));
+
+        // 2. Area of different shapes
+        System.out.println("\n2. Area of Different Shapes:");
+        AreaCalculator areaCalculator = new AreaCalculator();
+        System.out.print("Enter radius of the circle: ");
+        double radius = scanner.nextDouble();
+        System.out.println("Area of circle: " + areaCalculator.calculateArea(radius));
+        System.out.print("Enter length and width of the rectangle: ");
+        double length = scanner.nextDouble();
+        double width = scanner.nextDouble();
+        System.out.println("Area of rectangle: " + areaCalculator.calculateArea(length, width));
+        System.out.print("Enter base and height of the triangle: ");
+        int base = scanner.nextInt();
+        int height = scanner.nextInt();
+        System.out.println("Area of triangle: " + areaCalculator.calculateArea(base, height));
+
+        // 3. Print string and square of a number
+        System.out.println("\n3. Print String and Square of a Number:");
+        Printer printer = new Printer();
+        System.out.print("Enter a string: ");
+        String text = scanner.next();
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        printer.print(text, number);
+
+        // 4. Display book details
+        System.out.println("\n4. Display Book Details:");
+        Book book = new Book();
+        System.out.print("Enter book title: ");
+        String title = scanner.next();
+        System.out.print("Enter book author: ");
+        String author = scanner.next();
+        book.displayDetails(title, author);
+        System.out.print("Enter book price: ");
+        double price = scanner.nextDouble();
+        book.displayDetails(title, author, price);
+
+        // 5. Print different arrays
+        System.out.println("\n5. Print Different Arrays:");
+        ArrayPrinter arrayPrinter = new ArrayPrinter();
+        int[] intArray = {1, 2, 3, 4, 5};
+        String[] strArray = {"Hello", "World"};
+        int[][] twoDArray = {{1, 2}, {3, 4, 5}};
+        arrayPrinter.display(intArray);
+        arrayPrinter.display(strArray);
+        arrayPrinter.display(twoDArray);
+
+        scanner.close();
+    }
+}
+
