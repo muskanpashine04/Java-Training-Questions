@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+// Question 8: Single-Level Inheritance
+class Employee {
+    void work() {
+        System.out.println("Employee is working.");
+    }
+}
+
+class Manager extends Employee {
+    void attendMeeting() {
+        System.out.println("Manager is attending a meeting.");
+    }
+}
+
+// Question 9: Multi-Level Inheritance
+class Person {
+    void displayName() {
+        System.out.println("Person's name is being displayed.");
+    }
+}
+
+class Student extends Person {
+    void displayClass() {
+        System.out.println("Student's class is being displayed.");
+    }
+}
+
+class Monitor extends Student {
+    void checkDiscipline() {
+        System.out.println("Monitor is checking discipline.");
+    }
+}
+
+// Question 10: Single-Level Inheritance
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Question 11: Multi-Level Inheritance
+class Device {
+    void powerOn() {
+        System.out.println("Device is powered on.");
+    }
+}
+
+class Laptop extends Device {
+    void boot() {
+        System.out.println("Laptop is booting.");
+    }
+}
+
+class GamingLaptop extends Laptop {
+    void startGame() {
+        System.out.println("Gaming laptop is starting the game.");
+    }
+}
+
+// Question 12: Single-Level Inheritance
+class Book {
+    void read() {
+        System.out.println("Reading a book.");
+    }
+}
+
+class Novel extends Book {
+    void storyLine() {
+        System.out.println("Displaying the novel's storyline.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Question 8
+        System.out.println("Question 8:");
+        Manager manager = new Manager();
+        manager.work();
+        manager.attendMeeting();
+
+        // Question 9
+        System.out.println("\nQuestion 9:");
+        Monitor monitor = new Monitor();
+        monitor.displayName();
+        monitor.displayClass();
+        monitor.checkDiscipline();
+
+        // Question 10
+        System.out.println("\nQuestion 10:");
+        System.out.print("Enter the radius of the circle: ");
+        double radius = scanner.nextDouble();
+        Circle circle = new Circle(radius);
+        circle.draw();
+        System.out.println("Area of the circle: " + circle.calculateArea());
+
+        // Question 11
+        System.out.println("\nQuestion 11:");
+        GamingLaptop gamingLaptop = new GamingLaptop();
+        gamingLaptop.powerOn();
+        gamingLaptop.boot();
+        gamingLaptop.startGame();
+
+        // Question 12
+        System.out.println("\nQuestion 12:");
+        Novel novel = new Novel();
+        novel.read();
+        novel.storyLine();
+
+        scanner.close();
+    }
+}
+
