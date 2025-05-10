@@ -1,0 +1,1196 @@
+import java.util.Scanner;
+
+public class NumberTypeChecker {
+
+    // Helper function to reverse a number
+    static int reverseNumber(int num) {
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return reversed;
+    }
+
+    // Helper function to count digits in a number
+    static int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    // Helper function to calculate the power of a number
+    static int power(int base, int exp) {
+        int result = 1;
+        for (int i = 0; i < exp; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
+    // Helper function to check for prime
+    static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+        if (num % 2 == 0 || num % 3 == 0) return false;
+        for (int i = 5; i * i <= num; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) return false;
+        }
+        return true;
+    }
+    // Helper function to calculate factorial
+    static long factorial(int n) {
+        if (n == 0)
+            return 1;
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+
+    // 1. WAP to print natural numbers up-to 'n'
+    static void printNaturalNumbers(int n) {
+        System.out.print("Natural numbers up to " + n + ": ");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 2. WAP to print all even numbers between two given range
+    static void printEvenNumbers(int start, int end) {
+        System.out.print("Even numbers between " + start + " and " + end + ": ");
+        for (int i = (start % 2 == 0) ? start : start + 1; i <= end; i += 2) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 3. WAP to print 'n' natural numbers in reverse order
+    static void printReverseNaturalNumbers(int n) {
+        System.out.print("First " + n + " natural numbers in reverse order: ");
+        for (int i = n; i >= 1; i--) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 4. WAP to find sum of 'n' natural numbers
+    static int sumOfNaturalNumbers(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    // 5. WAP to find product of 'n' natural numbers
+    static long productOfNaturalNumbers(int n) {
+        long product = 1;
+        if(n == 0) return 0;
+        for (int i = 1; i <= n; i++) {
+            product *= i;
+        }
+        return product;
+    }
+
+    // 6. WAP to extract and display all digits from a given number
+    static void extractDigits(int num) {
+        System.out.print("Digits of " + num + " are: ");
+        while (num != 0) {
+            int digit = num % 10;
+            System.out.print(digit + " ");
+            num /= 10;
+        }
+        System.out.println();
+    }
+
+    // 7. WAP to find sum of all digits in a given number
+    static int sumOfDigits(int num) {
+        int sum = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            sum += digit;
+            num /= 10;
+        }
+        return sum;
+    }
+
+    // 8. WAP to find the count of all digits in a given number
+    static int countOfDigits(int num) {
+        return countDigits(num);
+    }
+
+    // 9. WAP to print reverse of a given number
+    static void printReverseOfNumber(int num) {
+        int reversed = reverseNumber(num);
+        System.out.println("Reverse of " + num + " is: " + reversed);
+    }
+
+    // 10. WAP to check a number is palindrome or not
+    static boolean isPalindrome(int num) {
+        int reversed = reverseNumber(num);
+        return num == reversed;
+    }
+
+    // 11. WAP to find all factors of a given number
+    static void printFactors(int num) {
+        System.out.print("Factors of " + num + " are: ");
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 12. WAP to find sum of all factors of a given number
+    static int sumOfFactors(int num) {
+        int sum = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    // 13. WAP to count all the factors of a given number and display it
+    static int countFactors(int num) {
+        int count = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+            }
+        }
+        System.out.println("Count of factors of " + num + " is: " + count);
+        return count;
+    }
+
+    // 14. WAP to check a number is prime or not
+    static boolean isPrimeNumber(int num) {
+        return isPrime(num);
+    }
+
+    // 15. WAP to print all prime numbers between 1 to 100
+    static void printPrimesBetween1And100() {
+        System.out.print("Prime numbers between 1 and 100 are: ");
+        for (int i = 2; i <= 100; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 16. WAP to print all prime numbers between two given range
+    static void printPrimesInRange(int start, int end) {
+        System.out.print("Prime numbers between " + start + " and " + end + ": ");
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 17. WAP to print alternate prime numbers between 1 to 100
+    static void printAlternatePrimesBetween1And100() {
+        System.out.print("Alternate prime numbers between 1 and 100 are: ");
+        int count = 0;
+        for (int i = 2; i <= 100; i++) {
+            if (isPrime(i)) {
+                count++;
+                if (count % 2 != 0) {
+                    System.out.print(i + " ");
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    // 18. WAP to check a number is perfect or not
+    static boolean isPerfectNumber(int num) {
+        if (num <= 0) return false;
+        int sumOfFactors = 1; // 1 is always a factor
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                sumOfFactors += i;
+                if (i * i != num) { // Avoid adding the same factor twice for perfect squares
+                    sumOfFactors += num / i;
+                }
+            }
+        }
+        return sumOfFactors == num;
+    }
+
+    // 19. WAP to print all perfect numbers between 1 to 100
+    static void printPerfectNumbersBetween1And100() {
+        System.out.print("Perfect numbers between 1 and 100 are: ");
+        for (int i = 1; i <= 100; i++) {
+            if (isPerfectNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 20. WAP to print all the perfect number between two given range
+    static void printPerfectNumbersInRange(int start, int end) {
+        System.out.print("Perfect numbers between " + start + " and " + end + ": ");
+        for (int i = start; i <= end; i++) {
+            if (isPerfectNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 21. WAP to check a number is Armstrong or not
+    static boolean isArmstrongNumber(int num) {
+        int originalNum = num;
+        int sum = 0;
+        int digits = countDigits(num);
+        while (num != 0) {
+            int digit = num % 10;
+            sum += power(digit, digits);
+            num /= 10;
+        }
+        return sum == originalNum;
+    }
+
+    // 22. WAP to print all Armstrong number between 1 to 100
+    static void printArmstrongNumbersBetween1And100() {
+        System.out.print("Armstrong numbers between 1 and 100 are: ");
+        for (int i = 1; i <= 100; i++) {
+            if (isArmstrongNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 23. WAP to print all Armstrong number between two given range
+    static void printArmstrongNumbersInRange(int start, int end) {
+        System.out.print("Armstrong numbers between " + start + " and " + end + ": ");
+        for (int i = start; i <= end; i++) {
+            if (isArmstrongNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+     // 24. WAP to check if a number is a Harshad number
+    static boolean isHarshadNumber(int number) {
+        if (number <= 0) return false;
+        int sumOfDigits = sumOfDigits(number);
+        return number % sumOfDigits == 0;
+    }
+
+    // 25. WAP to find LCM of two numbers
+    static int findLCM(int num1, int num2) {
+        // LCM(a, b) = (a * b) / GCD(a, b)
+        return (num1 * num2) / findGCD(num1, num2);
+    }
+
+     // 26. WAP to find GCD (HCF) of two numbers
+    static int findGCD(int num1, int num2) {
+        // Using Euclidean algorithm
+        while (num2 != 0) {
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
+        }
+        return num1;
+    }
+
+    // 27. WAP to find factorial of a number
+    static long findFactorial(int n) {
+        return factorial(n);
+    }
+
+    // 28. WAP to print Fibonacci series up to n terms
+    static void printFibonacciSeries(int n) {
+        System.out.print("Fibonacci series up to " + n + " terms: ");
+        int first = 0, second = 1;
+        if (n >= 1) System.out.print(first + " ");
+        if (n >= 2) System.out.print(second + " ");
+        for (int i = 3; i <= n; i++) {
+            int next = first + second;
+            System.out.print(next + " ");
+            first = second;
+            second = next;
+        }
+        System.out.println();
+    }
+
+    // 29. WAP to print Fibonacci numbers in a given range
+    static void printFibonacciRange(int start, int end) {
+        System.out.print("Fibonacci numbers between " + start + " and " + end + ": ");
+        int first = 0, second = 1;
+        while (first <= end) {
+            if (first >= start) {
+                System.out.print(first + " ");
+            }
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+        System.out.println();
+    }
+
+    // 30. WAP to swap two numbers
+    static void swapNumbers(int num1, int num2) {
+        System.out.println("Before swapping: num1 = " + num1 + ", num2 = " + num2);
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+        System.out.println("After swapping: num1 = " + num1 + ", num2 = " + num2);
+    }
+
+    // 31. WAP to swap first and last digit of a number
+    static int swapFirstAndLastDigit(int num) {
+        if (num < 10) return num; // Numbers less than 10 have only one digit
+        int lastDigit = num % 10;
+        int digits = countDigits(num);
+        int firstDigit = num / power(10, digits - 1);
+        int middleDigits = num % power(10, digits - 1) / 10; // Corrected to handle numbers like 10, 100
+        return lastDigit * power(10, digits - 1) + middleDigits * 10 + firstDigit;
+    }
+
+    // 32. WAP to calculate the sum of alternate digits in a number
+    static int sumOfAlternateDigits(int num) {
+        int sum = 0;
+        int count = 0;
+        while (num != 0) {
+            if (count % 2 == 0) {
+                sum += num % 10;
+            }
+            num /= 10;
+            count++;
+        }
+        return sum;
+    }
+
+    // 33. WAP to check whether the number is duck number
+    static boolean isDuckNumber(int number) {
+        String numStr = String.valueOf(number);
+        // A number is a duck number if it contains 0 and doesn't start with 0.
+        if (numStr.charAt(0) == '0') {
+            return false;
+        }
+        for (int i = 1; i < numStr.length(); i++) {
+            if (numStr.charAt(i) == '0') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 34. WAP to check if a number is a Buzz number
+    static boolean isBuzzNumber(int number) {
+        // A number is a Buzz number if it is divisible by 7 or its last digit is 7.
+        if (number % 7 == 0 || number % 10 == 7) {
+            return true;
+        }
+        return false;
+    }
+
+    // 35. WAP to check if a number is a Magic Number
+    static boolean isMagicNumber(int number) {
+        // A number is a magic number if the sum of its digits repeatedly calculated until a single digit is 1.
+        int sum = number;
+        while (sum > 9) {
+            int tempSum = 0;
+            while (sum > 0) {
+                tempSum += sum % 10;
+                sum /= 10;
+            }
+            sum = tempSum;
+        }
+        return sum == 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Print natural numbers up to n
+        System.out.print("Enter a number for printing natural numbers: ");
+        int n1 = scanner.nextInt();
+        printNaturalNumbers(n1);
+
+        // 2. Print even numbers in a range
+        System.out.print("Enter start and end for even number range: ");
+        int start2 = scanner.nextInt();
+        int end2 = scanner.nextInt();
+        printEvenNumbers(start2, end2);
+
+        // 3. Print n natural numbers in reverse
+        System.out.print("Enter a number to print natural numbers in reverse: ");
+        int n3 = scanner.nextInt();
+        printReverseNaturalNumbers(n3);
+
+        // 4. Sum of n natural numbers
+        System.out.print("Enter a number to find its sum: ");
+        int n4 = scanner.nextInt();
+        System.out.println("Sum of first " + n4 + " natural numbers is: " + sumOfNaturalNumbers(n4));
+
+        // 5. Product of n natural numbers
+        System.out.print("Enter a number to find its product: ");
+        int n5 = scanner.nextInt();
+        System.out.println("Product of first " + n5 + " natural numbers is: " + productOfNaturalNumbers(n5));
+
+        // 6. Extract digits of a number
+        System.out.print("Enter a number to extract its digits: ");
+        int num6 = scanner.nextInt();
+        extractDigits(num6);
+
+        // 7. Sum of digits of a number
+        System.out.print("Enter a number to find the sum of its digits: ");
+        int num7 = scanner.nextInt();
+        System.out.println("Sum of digits of " + num7 + " is: " + sumOfDigits(num7));
+
+        // 8. Count digits in a number
+        System.out.print("Enter a number to count its digits: ");
+        int num8 = scanner.nextInt();
+        System.out.println("Count of digits of " + num8 + " is: " + countOfDigits(num8));
+
+        // 9. Reverse of a number
+        System.out.print("Enter a number to reverse: ");
+        int num9 = scanner.nextInt();
+        printReverseOfNumber(num9);
+
+        // 10. Palindrome check
+        System.out.print("Enter a number to check if it's a palindrome: ");
+        int num10 = scanner.nextInt();
+        if (isPalindrome(num10)) {
+            System.out.println(num10 + " is a palindrome.");
+        } else {
+            System.out.println(num10 + " is not a palindrome.");
+        }
+
+        // 11. Factors of a number
+        System.out.print("Enter a number to find its factors: ");
+        int num11 = scanner.nextInt();
+        printFactors(num11);
+
+        // 12. Sum of factors of a number
+        System.out.print("Enter a number to find the sum of its factors: ");
+        int num12 = scanner.nextInt();
+        System.out.println("Sum of factors of " + num12 + " is: " + sumOfFactors(num12));
+
+        // 13. Count factors of a number
+        System.out.print("Enter a number to count its factors: ");
+        int num13 = scanner.nextInt();
+        countFactors(num13);
+
+        // 14. Prime check
+        System.out.print("Enter a number to check if it's prime: ");
+        int num14 = scanner.nextInt();
+        if (isPrimeNumber(num14)) {
+            System.out.println(num14 + " is a prime number.");
+        } else {
+            System.out.println(num14 + " is not a prime number.");
+        }
+
+        // 15. Primes between 1 and 100
+        printPrimesBetween1And100();
+
+        // 16. Primes in a range
+        System.out.print("Enter start and end for prime number range: ");
+        int start16 = scanner.nextInt();
+        int end16 = scanner.nextInt();
+        printPrimesInRange(start16, end16);
+
+        // 17. Alternate primes between 1 and 100
+        printAlternatePrimesBetween1And100();
+
+        // 18. Perfect number check
+        System.out.print("Enter a number to check if it's perfect: ");
+        int num18 = scanner.nextInt();
+        if (isPerfectNumber(num18)) {
+            System.out.println(num18 + " is a perfect number.");
+        } else {
+            System.out.println(num18 + " is not a perfect number.");
+        }
+
+        // 19. Perfect numbers between 1 and 100
+        printPerfectNumbersBetween1And100();
+
+        // 20. Perfect numbers in a range
+        System.out.print("Enter start and end for perfect number range: ");
+        int start20 = scanner.nextInt();
+        int end20 = scanner.nextInt();
+        printPerfectNumbersInRange(start20, end20);
+
+        // 21. Armstrong number check
+        System.out.print("Enter a number to check if it is an Armstrong number: ");
+        int num21 = scanner.nextInt();
+        if (isArmstrongNumber(num21)) {
+            System.out.println(num21 + " is an Armstrong number.");
+        } else {
+            System.out.println(num21 + " is not an Armstrong number.");
+        }
+
+        // 22. Armstrong numbers between 1 and 100
+        printArmstrongNumbersBetween1And100();
+
+        // 23. Armstrong numbers in a range
+        System.out.print("Enter start and end for Armstrong number range: ");
+        int start23 = scanner.nextInt();
+        int end23 = scanner.nextInt();
+        printArmstrongNumbersInRange(start23, end23);
+
+        // 24. Harshad number check
+        System.out.print("Enter a number to check if it is a Harshad number: ");
+        int num24 = scanner.nextInt();
+        if (isHarshadNumber(num24)) {
+            System.out.println(num24 + " is a Harshad number.");
+        } else {
+            System.out.println(num24 + " is not a Harshad number.");
+        }
+
+        // 25. LCM of two numbers
+        System.out.print("Enter two numbers to find their LCM: ");
+        int num25a = scanner.nextInt();
+        int num25b = scanner.nextInt();
+        System.out.println("LCM of " + num25a + " and " + num25b + " is: " + findLCM(num25a, num25b));
+
+        // 26. GCD of two numbers
+        System.out.print("Enter two numbers to find their GCD: ");
+        int num26a = scanner.nextInt();
+        int num26b = scanner.nextInt();
+        System.out.println("GCD of " + num26a + " and " + num26b + " is: " + findGCD(num26a, num26b));
+
+        // 27. Factorial of a number
+        System.out.print("Enter a number to find its factorial: ");
+        int num27 = scanner.nextInt();
+        System.out.println("Factorial of " + num27 + " is: " + findFactorial(num27));
+
+        // 28. Fibonacci series up to n terms
+        System.out.print("Enter the number of terms for the Fibonacci series: ");
+        int n28 = scanner.nextInt();
+        printFibonacciSeries(n28);
+
+        // 29. Fibonacci numbers in a range
+        System.out.print("Enter start and end for the Fibonacci range: ");
+        int start29 = scanner.nextInt();
+        int end29 = scanner.nextInt();
+        printFibonacciRange(start29, end29);
+
+        // 30. Swap two numbers
+        System.out.print("Enter two numbers to swap: ");
+        int num30a = scanner.nextInt();
+        int num30b = scanner.nextInt();
+        swapNumbers(num30a, num30b);
+
+        // 31. Swap first and last digit
+        System.out.print("Enter a number to swap its first and last digits: ");
+        int num31 = scanner.nextInt();
+        System.out.println("Number with swapped
+I'll add the Java code for the number theory problems you've listed, building upon the `java_number_type_programs` artifact.
+
+
+```java
+import java.util.Scanner;
+
+public class NumberTypeChecker {
+
+    // Helper function to reverse a number
+    static int reverseNumber(int num) {
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return reversed;
+    }
+
+    // Helper function to count digits in a number
+    static int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    // Helper function to calculate the power of a number
+    static int power(int base, int exp) {
+        int result = 1;
+        for (int i = 0; i < exp; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
+    // Helper function to check for prime
+    static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+        if (num % 2 == 0 || num % 3 == 0) return false;
+        for (int i = 5; i * i <= num; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) return false;
+        }
+        return true;
+    }
+    // Helper function to calculate factorial
+    static long factorial(int n) {
+        if (n == 0)
+            return 1;
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+
+    // 1. WAP to print natural numbers up-to 'n'
+    static void printNaturalNumbers(int n) {
+        System.out.print("Natural numbers up to " + n + ": ");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 2. WAP to print all even numbers between two given range
+    static void printEvenNumbers(int start, int end) {
+        System.out.print("Even numbers between " + start + " and " + end + ": ");
+        for (int i = (start % 2 == 0) ? start : start + 1; i <= end; i += 2) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 3. WAP to print 'n' natural numbers in reverse order
+    static void printReverseNaturalNumbers(int n) {
+        System.out.print("First " + n + " natural numbers in reverse order: ");
+        for (int i = n; i >= 1; i--) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 4. WAP to find sum of 'n' natural numbers
+    static int sumOfNaturalNumbers(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    // 5. WAP to find product of 'n' natural numbers
+    static long productOfNaturalNumbers(int n) {
+        long product = 1;
+        if(n == 0) return 0;
+        for (int i = 1; i <= n; i++) {
+            product *= i;
+        }
+        return product;
+    }
+
+    // 6. WAP to extract and display all digits from a given number
+    static void extractDigits(int num) {
+        System.out.print("Digits of " + num + " are: ");
+        while (num != 0) {
+            int digit = num % 10;
+            System.out.print(digit + " ");
+            num /= 10;
+        }
+        System.out.println();
+    }
+
+    // 7. WAP to find sum of all digits in a given number
+    static int sumOfDigits(int num) {
+        int sum = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            sum += digit;
+            num /= 10;
+        }
+        return sum;
+    }
+
+    // 8. WAP to find the count of all digits in a given number
+    static int countOfDigits(int num) {
+        return countDigits(num);
+    }
+
+    // 9. WAP to print reverse of a given number
+    static void printReverseOfNumber(int num) {
+        int reversed = reverseNumber(num);
+        System.out.println("Reverse of " + num + " is: " + reversed);
+    }
+
+    // 10. WAP to check a number is palindrome or not
+    static boolean isPalindrome(int num) {
+        int reversed = reverseNumber(num);
+        return num == reversed;
+    }
+
+    // 11. WAP to find all factors of a given number
+    static void printFactors(int num) {
+        System.out.print("Factors of " + num + " are: ");
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 12. WAP to find sum of all factors of a given number
+    static int sumOfFactors(int num) {
+        int sum = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    // 13. WAP to count all the factors of a given number and display it
+    static int countFactors(int num) {
+        int count = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+            }
+        }
+        System.out.println("Count of factors of " + num + " is: " + count);
+        return count;
+    }
+
+    // 14. WAP to check a number is prime or not
+    static boolean isPrimeNumber(int num) {
+        return isPrime(num);
+    }
+
+    // 15. WAP to print all prime numbers between 1 to 100
+    static void printPrimesBetween1And100() {
+        System.out.print("Prime numbers between 1 and 100 are: ");
+        for (int i = 2; i <= 100; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 16. WAP to print all prime numbers between two given range
+    static void printPrimesInRange(int start, int end) {
+        System.out.print("Prime numbers between " + start + " and " + end + ": ");
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 17. WAP to print alternate prime numbers between 1 to 100
+    static void printAlternatePrimesBetween1And100() {
+        System.out.print("Alternate prime numbers between 1 and 100 are: ");
+        int count = 0;
+        for (int i = 2; i <= 100; i++) {
+            if (isPrime(i)) {
+                count++;
+                if (count % 2 != 0) {
+                    System.out.print(i + " ");
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    // 18. WAP to check a number is perfect or not
+    static boolean isPerfectNumber(int num) {
+        if (num <= 0) return false;
+        int sumOfFactors = 1; // 1 is always a factor
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                sumOfFactors += i;
+                if (i * i != num) { // Avoid adding the same factor twice for perfect squares
+                    sumOfFactors += num / i;
+                }
+            }
+        }
+        return sumOfFactors == num;
+    }
+
+    // 19. WAP to print all perfect numbers between 1 to 100
+    static void printPerfectNumbersBetween1And100() {
+        System.out.print("Perfect numbers between 1 and 100 are: ");
+        for (int i = 1; i <= 100; i++) {
+            if (isPerfectNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 20. WAP to print all the perfect number between two given range
+    static void printPerfectNumbersInRange(int start, int end) {
+        System.out.print("Perfect numbers between " + start + " and " + end + ": ");
+        for (int i = start; i <= end; i++) {
+            if (isPerfectNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 21. WAP to check a number is Armstrong or not
+    static boolean isArmstrongNumber(int num) {
+        int originalNum = num;
+        int sum = 0;
+        int digits = countDigits(num);
+        while (num != 0) {
+            int digit = num % 10;
+            sum += power(digit, digits);
+            num /= 10;
+        }
+        return sum == originalNum;
+    }
+
+    // 22. WAP to print all Armstrong number between 1 to 100
+    static void printArmstrongNumbersBetween1And100() {
+        System.out.print("Armstrong numbers between 1 and 100 are: ");
+        for (int i = 1; i <= 100; i++) {
+            if (isArmstrongNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // 23. WAP to print all Armstrong number between two given range
+    static void printArmstrongNumbersInRange(int start, int end) {
+        System.out.print("Armstrong numbers between " + start + " and " + end + ": ");
+        for (int i = start; i <= end; i++) {
+            if (isArmstrongNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+     // 24. WAP to check if a number is a Harshad number
+    static boolean isHarshadNumber(int number) {
+        if (number <= 0) return false;
+        int sumOfDigits = sumOfDigits(number);
+        return number % sumOfDigits == 0;
+    }
+
+    // 25. WAP to find LCM of two numbers
+    static int findLCM(int num1, int num2) {
+        // LCM(a, b) = (a * b) / GCD(a, b)
+        return (num1 * num2) / findGCD(num1, num2);
+    }
+
+     // 26. WAP to find GCD (HCF) of two numbers
+    static int findGCD(int num1, int num2) {
+        // Using Euclidean algorithm
+        while (num2 != 0) {
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
+        }
+        return num1;
+    }
+
+    // 27. WAP to find factorial of a number
+    static long findFactorial(int n) {
+        return factorial(n);
+    }
+
+    // 28. WAP to print Fibonacci series up to n terms
+    static void printFibonacciSeries(int n) {
+        System.out.print("Fibonacci series up to " + n + " terms: ");
+        int first = 0, second = 1;
+        if (n >= 1) System.out.print(first + " ");
+        if (n >= 2) System.out.print(second + " ");
+        for (int i = 3; i <= n; i++) {
+            int next = first + second;
+            System.out.print(next + " ");
+            first = second;
+            second = next;
+        }
+        System.out.println();
+    }
+
+    // 29. WAP to print Fibonacci numbers in a given range
+    static void printFibonacciRange(int start, int end) {
+        System.out.print("Fibonacci numbers between " + start + " and " + end + ": ");
+        int first = 0, second = 1;
+        while (first <= end) {
+            if (first >= start) {
+                System.out.print(first + " ");
+            }
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+        System.out.println();
+    }
+
+    // 30. WAP to swap two numbers
+    static void swapNumbers(int num1, int num2) {
+        System.out.println("Before swapping: num1 = " + num1 + ", num2 = " + num2);
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+        System.out.println("After swapping: num1 = " + num1 + ", num2 = " + num2);
+    }
+
+    // 31. WAP to swap first and last digit of a number
+    static int swapFirstAndLastDigit(int num) {
+        if (num < 10) return num; // Numbers less than 10 have only one digit
+        int lastDigit = num % 10;
+        int digits = countDigits(num);
+        int firstDigit = num / power(10, digits - 1);
+        int middleDigits = num % power(10, digits - 1) / 10; // Corrected to handle numbers like 10, 100
+        return lastDigit * power(10, digits - 1) + middleDigits * 10 + firstDigit;
+    }
+
+    // 32. WAP to calculate the sum of alternate digits in a number
+    static int sumOfAlternateDigits(int num) {
+        int sum = 0;
+        int count = 0;
+        while (num != 0) {
+            if (count % 2 == 0) {
+                sum += num % 10;
+            }
+            num /= 10;
+            count++;
+        }
+        return sum;
+    }
+
+    // 33. WAP to check whether the number is duck number
+    static boolean isDuckNumber(int number) {
+        String numStr = String.valueOf(number);
+        // A number is a duck number if it contains 0 and doesn't start with 0.
+        if (numStr.charAt(0) == '0') {
+            return false;
+        }
+        for (int i = 1; i < numStr.length(); i++) {
+            if (numStr.charAt(i) == '0') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 34. WAP to check if a number is a Buzz number
+    static boolean isBuzzNumber(int number) {
+        // A number is a Buzz number if it is divisible by 7 or its last digit is 7.
+        if (number % 7 == 0 || number % 10 == 7) {
+            return true;
+        }
+        return false;
+    }
+
+    // 35. WAP to check if a number is a Magic Number
+    static boolean isMagicNumber(int number) {
+        // A number is a magic number if the sum of its digits repeatedly calculated until a single digit is 1.
+        int sum = number;
+        while (sum > 9) {
+            int tempSum = 0;
+            while (sum > 0) {
+                tempSum += sum % 10;
+                sum /= 10;
+            }
+            sum = tempSum;
+        }
+        return sum == 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Print natural numbers up to n
+        System.out.print("Enter a number for printing natural numbers: ");
+        int n1 = scanner.nextInt();
+        printNaturalNumbers(n1);
+
+        // 2. Print even numbers in a range
+        System.out.print("Enter start and end for even number range: ");
+        int start2 = scanner.nextInt();
+        int end2 = scanner.nextInt();
+        printEvenNumbers(start2, end2);
+
+        // 3. Print n natural numbers in reverse
+        System.out.print("Enter a number to print natural numbers in reverse: ");
+        int n3 = scanner.nextInt();
+        printReverseNaturalNumbers(n3);
+
+        // 4. Sum of n natural numbers
+        System.out.print("Enter a number to find its sum: ");
+        int n4 = scanner.nextInt();
+        System.out.println("Sum of first " + n4 + " natural numbers is: " + sumOfNaturalNumbers(n4));
+
+        // 5. Product of n natural numbers
+        System.out.print("Enter a number to find its product: ");
+        int n5 = scanner.nextInt();
+        System.out.println("Product of first " + n5 + " natural numbers is: " + productOfNaturalNumbers(n5));
+
+        // 6. Extract digits of a number
+        System.out.print("Enter a number to extract its digits: ");
+        int num6 = scanner.nextInt();
+        extractDigits(num6);
+
+        // 7. Sum of digits of a number
+        System.out.print("Enter a number to find the sum of its digits: ");
+        int num7 = scanner.nextInt();
+        System.out.println("Sum of digits of " + num7 + " is: " + sumOfDigits(num7));
+
+        // 8. Count digits in a number
+        System.out.print("Enter a number to count its digits: ");
+        int num8 = scanner.nextInt();
+        System.out.println("Count of digits of " + num8 + " is: " + countOfDigits(num8));
+
+        // 9. Reverse of a number
+        System.out.print("Enter a number to reverse: ");
+        int num9 = scanner.nextInt();
+        printReverseOfNumber(num9);
+
+        // 10. Palindrome check
+        System.out.print("Enter a number to check if it's a palindrome: ");
+        int num10 = scanner.nextInt();
+        if (isPalindrome(num10)) {
+            System.out.println(num10 + " is a palindrome.");
+        } else {
+            System.out.println(num10 + " is not a palindrome.");
+        }
+
+        // 11. Factors of a number
+        System.out.print("Enter a number to find its factors: ");
+        int num11 = scanner.nextInt();
+        printFactors(num11);
+
+        // 12. Sum of factors of a number
+        System.out.print("Enter a number to find the sum of its factors: ");
+        int num12 = scanner.nextInt();
+        System.out.println("Sum of factors of " + num12 + " is: " + sumOfFactors(num12));
+
+        // 13. Count factors of a number
+        System.out.print("Enter a number to count its factors: ");
+        int num13 = scanner.nextInt();
+        countFactors(num13);
+
+        // 14. Prime check
+        System.out.print("Enter a number to check if it's prime: ");
+        int num14 = scanner.nextInt();
+        if (isPrimeNumber(num14)) {
+            System.out.println(num14 + " is a prime number.");
+        } else {
+            System.out.println(num14 + " is not a prime number.");
+        }
+
+        // 15. Primes between 1 and 100
+        printPrimesBetween1And100();
+
+        // 16. Primes in a range
+        System.out.print("Enter start and end for prime number range: ");
+        int start16 = scanner.nextInt();
+        int end16 = scanner.nextInt();
+        printPrimesInRange(start16, end16);
+
+        // 17. Alternate primes between 1 and 100
+        printAlternatePrimesBetween1And100();
+
+        // 18. Perfect number check
+        System.out.print("Enter a number to check if it's perfect: ");
+        int num18 = scanner.nextInt();
+        if (isPerfectNumber(num18)) {
+            System.out.println(num18 + " is a perfect number.");
+        } else {
+            System.out.println(num18 + " is not a perfect number.");
+        }
+
+        // 19. Perfect numbers between 1 and 100
+        printPerfectNumbersBetween1And100();
+
+        // 20. Perfect numbers in a range
+        System.out.print("Enter start and end for perfect number range: ");
+        int start20 = scanner.nextInt();
+        int end20 = scanner.nextInt();
+        printPerfectNumbersInRange(start20, end20);
+
+        // 21. Armstrong number check
+        System.out.print("Enter a number to check if it is an Armstrong number: ");
+        int num21 = scanner.nextInt();
+        if (isArmstrongNumber(num21)) {
+            System.out.println(num21 + " is an Armstrong number.");
+        } else {
+            System.out.println(num21 + " is not an Armstrong number.");
+        }
+
+        // 22. Armstrong numbers between 1 and 100
+        printArmstrongNumbersBetween1And100();
+
+        // 23. Armstrong numbers in a range
+        System.out.print("Enter start and end for Armstrong number range: ");
+        int start23 = scanner.nextInt();
+        int end23 = scanner.nextInt();
+        printArmstrongNumbersInRange(start23, end23);
+
+        // 24. Harshad number check
+        System.out.print("Enter a number to check if it is a Harshad number: ");
+        int num24 = scanner.nextInt();
+        if (isHarshadNumber(num24)) {
+            System.out.println(num24 + " is a Harshad number.");
+        } else {
+            System.out.println(num24 + " is not a Harshad number.");
+        }
+
+        // 25. LCM of two numbers
+        System.out.print("Enter two numbers to find their LCM: ");
+        int num25a = scanner.nextInt();
+        int num25b = scanner.nextInt();
+        System.out.println("LCM of " + num25a + " and " + num25b + " is: " + findLCM(num25a, num25b));
+
+        // 26. GCD of two numbers
+        System.out.print("Enter two numbers to find their GCD: ");
+        int num26a = scanner.nextInt();
+        int num26b = scanner.nextInt();
+        System.out.println("GCD of " + num26a + " and " + num26b + " is: " + findGCD(num26a, num26b));
+
+        // 27. Factorial of a number
+        System.out.print("Enter a number to find its factorial: ");
+        int num27 = scanner.nextInt();
+        System.out.println("Factorial of " + num27 + " is: " + findFactorial(num27));
+
+        // 28. Fibonacci series up to n terms
+        System.out.print("Enter the number of terms for the Fibonacci series: ");
+        int n28 = scanner.nextInt();
+        printFibonacciSeries(n28);
+
+        // 29. Fibonacci numbers in a range
+        System.out.print("Enter start and end for the Fibonacci range: ");
+        int start29 = scanner.nextInt();
+        int end29 = scanner.nextInt();
+        printFibonacciRange(start29, end29);
+
+        // 30. Swap two numbers
+        System.out.print("Enter two numbers to swap: ");
+        int num30a = scanner.nextInt();
+        int num30b = scanner.nextInt();
+        swapNumbers(num30a, num30b);
+
+        // 31. Swap first and last digit
+        System.out.print("Enter a number to swap its first and last digits: ");
+        int num31 = scanner.nextInt();
+        System.out.println("Number with swap
