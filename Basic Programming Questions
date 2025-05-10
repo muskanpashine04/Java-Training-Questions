@@ -1,0 +1,373 @@
+1. Check Even or Odd using if-else
+   Input: Any integer
+   Output: "Even" or "Odd"
+
+   
+import java.util.Scanner;
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        if (number % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+2. Check Positive, Negative or Zero
+   Input: Any integer
+   Output: "Positive", "Negative" or "Zero"
+
+   
+import java.util.Scanner;
+
+public class PositiveNegativeZero {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        if (number > 0) {
+            System.out.println("Positive");
+        } else if (number < 0) {
+            System.out.println("Negative");
+        } else {
+            System.out.println("Zero");
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+3. Find Greatest of Two Numbers using if-else
+
+
+import java.util.Scanner;
+
+public class GreatestOfTwo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter two integers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        if (num1 > num2) {
+            System.out.println("Greatest number is: " + num1);
+        } else {
+            System.out.println("Greatest number is: " + num2);
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 4. Check whether a character is vowel or consonant using switch-case
+
+ 
+import java.util.Scanner;
+
+public class VowelConsonant {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = scanner.next().charAt(0);
+        ch = Character.toLowerCase(ch); // Convert to lowercase
+
+        switch (ch) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                System.out.println("Vowel");
+                break;
+            default:
+                System.out.println("Consonant");
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 5. Print numbers from 1 to N using a for loop
+   Input: N
+   Output: 1 2 3 ... n
+
+   
+import java.util.Scanner;
+
+public class PrintNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println(); // Add a newline
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 6. Sum of first N natural numbers using while loop
+
+ 
+import java.util.Scanner;
+
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+        int i = 1;
+        int sum = 0;
+
+        while (i <= n) {
+            sum += i;
+            i++;
+        }
+
+        System.out.println("Sum of first " + n + " natural numbers is: " + sum);
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+7. Print multiplication table of a number using loop
+   Input: 5
+   Output: 5 10 15 20 ... 50
+
+   
+import java.util.Scanner;
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        System.out.println("Multiplication table for " + number + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 8. Check whether a number is divisible by 5 and 11 using if-else
+
+ 
+import java.util.Scanner;
+
+public class DivisibleBy5And11 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        if (number % 5 == 0 && number % 11 == 0) {
+            System.out.println(number + " is divisible by both 5 and 11");
+        } else {
+            System.out.println(number + " is not divisible by both 5 and 11");
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+9. Type casting example: Convert float to int and print both
+
+
+import java.util.Scanner;
+
+public class TypeCastingExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a floating-point number: ");
+        float floatNumber = scanner.nextFloat();
+        int integerNumber = (int) floatNumber; // Type casting
+
+        System.out.println("Float value: " + floatNumber);
+        System.out.println("Integer value: " + integerNumber);
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+10. Check whether a number is a multiple of 3 or not using if-else
+
+import java.util.Scanner;
+
+public class MultipleOf3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        if (number % 3 == 0) {
+            System.out.println(number + " is a multiple of 3");
+        } else {
+            System.out.println(number + " is not a multiple of 3");
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 11. Take a character input and print its ASCII value (Type casting)
+
+ 
+import java.util.Scanner;
+
+public class AsciiValue {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = scanner.next().charAt(0);
+
+        System.out.println("ASCII value of " + ch + " is " + (int) ch);
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+12. Find factorial of a number using for loop
+
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a non-negative integer: ");
+        int number = scanner.nextInt();
+        long factorial = 1;
+
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+            return;
+        }
+
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Factorial of " + number + " is " + factorial);
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 13. Write a program to reverse a number using while loop
+    Input: 1234
+    Output: 4321
+
+    
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        int reversedNumber = 0;
+        int remainder;
+
+        while (number != 0) {
+            remainder = number % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            number /= 10;
+        }
+
+        System.out.println("Reversed number is: " + reversedNumber);
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+14. Check whether a number is prime or not using loop and if-else
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i * i <= number; i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(number + " is a prime number");
+        } else {
+            System.out.println(number + " is not a prime number");
+        }
+        scanner.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+ 15. Use switch-case to build a simple calculator (Add, Sub, Mul, Div)
+    Input: Two numbers and an operator
+    Output: Result
+
+    
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter two numbers: ");
+        float num1 = scanner.nextFloat();
+        float num2 = scanner.nextFloat();
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+        float result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                System.out.printf("Result: %.2f\n", result);
+                break;
+            case '-':
+                result = num1 - num2;
+                System.out.printf("Result: %.2f\n", result);
+                break;
+            case '*':
+                result = num1 * num2;
+                System.out.printf("Result: %.2f\n", result);
+                break;
+            case '/':
+                if (num2 == 0) {
+                    System.out.println("Error: Division by zero");
+                    return;
+                }
+                result = num1 / num2;
+                System.out.printf("Result: %.2f\n", result);
+                break;
+            default:
+                System.out.println("Error: Invalid operator");
+        }
+        scanner.close();
+    }
+}
