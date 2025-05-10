@@ -1,0 +1,199 @@
+import java.util.Scanner;
+
+public class EncapsulationPractice {
+
+    // 1. BankAccount class
+    static class BankAccount {
+        private double balance;
+
+        public BankAccount(double initialBalance) {
+            this.balance = initialBalance;
+        }
+
+        public double getBalance() {
+            return balance;
+        }
+
+        public void deposit(double amount) {
+            if (amount > 0) {
+                balance += amount;
+                System.out.println("Deposited " + amount + ". New balance: " + balance);
+            } else {
+                System.out.println("Invalid deposit amount.");
+            }
+        }
+
+        public void withdraw(double amount) {
+            if (amount > 0 && balance >= amount) {
+                balance -= amount;
+                System.out.println("Withdrew " + amount + ". New balance: " + balance);
+            } else {
+                System.out.println("Invalid withdrawal amount or insufficient funds.");
+            }
+        }
+    }
+
+    // 2. Student class
+    static class Student {
+        private String name;
+        private double marks;
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setMarks(double marks) {
+            this.marks = marks;
+        }
+
+        public double getMarks() {
+            return marks;
+        }
+
+        public void printDetails() {
+            System.out.println("Name: " + name);
+            System.out.println("Marks: " + marks);
+        }
+    }
+
+    // 3. Employee class
+    static class Employee {
+        private int id;
+        private String name;
+        private double salary;
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setSalary(double salary) {
+            this.salary = salary;
+        }
+
+        public double getSalary() {
+            return salary;
+        }
+
+        public void displayDetails() {
+            System.out.println("ID: " + id);
+            System.out.println("Name: " + name);
+            System.out.println("Salary: " + salary);
+        }
+    }
+
+    // 4. Temperature class
+    static class Temperature {
+        private double celsius;
+
+        public Temperature(double celsius) {
+            this.celsius = celsius;
+        }
+
+        public double getFahrenheit() {
+            return (celsius * 9 / 5) + 32;
+        }
+    }
+
+    // 5. Rectangle class
+    static class Rectangle {
+        private double length;
+        private double width;
+
+        public void setLength(double length) {
+            this.length = length;
+        }
+
+        public void setWidth(double width) {
+            this.width = width;
+        }
+
+        public double getArea() {
+            return length * width;
+        }
+
+        public double getPerimeter() {
+            return 2 * (length + width);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. BankAccount
+        System.out.println("1. Bank Account:");
+        System.out.print("Enter initial balance: ");
+        double initialBalance = scanner.nextDouble();
+        BankAccount account = new BankAccount(initialBalance);
+        System.out.println("Initial balance: " + account.getBalance());
+        System.out.print("Enter amount to deposit: ");
+        double depositAmount = scanner.nextDouble();
+        account.deposit(depositAmount);
+        System.out.print("Enter amount to withdraw: ");
+        double withdrawAmount = scanner.nextDouble();
+        account.withdraw(withdrawAmount);
+        System.out.println("Final balance: " + account.getBalance());
+
+        // 2. Student
+        System.out.println("\n2. Student Details:");
+        Student student = new Student();
+        System.out.print("Enter student name: ");
+        String studentName = scanner.next();
+        student.setName(studentName);
+        System.out.print("Enter student marks: ");
+        double studentMarks = scanner.nextDouble();
+        student.setMarks(studentMarks);
+        student.printDetails();
+
+        // 3. Employee
+        System.out.println("\n3. Employee Details:");
+        Employee employee = new Employee();
+        System.out.print("Enter employee ID: ");
+        int employeeId = scanner.nextInt();
+        employee.setId(employeeId);
+        System.out.print("Enter employee name: ");
+        String employeeName = scanner.next();
+        employee.setName(employeeName);
+        System.out.print("Enter employee salary: ");
+        double employeeSalary = scanner.nextDouble();
+        employee.setSalary(employeeSalary);
+        employee.displayDetails();
+
+        // 4. Temperature
+        System.out.println("\n4. Temperature Conversion:");
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = scanner.nextDouble();
+        Temperature temperature = new Temperature(celsius);
+        System.out.println(celsius + " Celsius is " + temperature.getFahrenheit() + " Fahrenheit.");
+
+        // 5. Rectangle
+        System.out.println("\n5. Rectangle Details:");
+        Rectangle rectangle = new Rectangle();
+        System.out.print("Enter rectangle length: ");
+        double rectLength = scanner.nextDouble();
+        rectangle.setLength(rectLength);
+        System.out.print("Enter rectangle width: ");
+        double rectWidth = scanner.nextDouble();
+        rectangle.setWidth(rectWidth);
+        System.out.println("Rectangle area: " + rectangle.getArea());
+        System.out.println("Rectangle perimeter: " + rectangle.getPerimeter());
+
+        scanner.close();
+    }
+}
+
