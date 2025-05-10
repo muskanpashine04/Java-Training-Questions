@@ -1,0 +1,421 @@
+import java.util.Scanner;
+
+// 1. Create a class named Student with no attributes. Create an object of this class and print its address.
+class Student {
+}
+
+// 2. Create a class named Car with an instance variable color. Create an object of this class and assign the color "Red" to it. Print the color.
+class Car {
+    String color;
+}
+
+// 3. Create a class named Book with two instance variables: title and author. Create an object and assign values to these variables. Print the values.
+class Book {
+    String title;
+    String author;
+}
+
+// 4. Create a class named Rectangle with instance variables length and width. Create an object and assign values to these variables. Print the area of the rectangle.
+class Rectangle {
+    double length;
+    double width;
+
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+// 5. Create a class named BankAccount with an instance variable balance. Create an object and assign an initial balance of 1000. Print the balance.
+class BankAccount {
+    double balance;
+}
+
+// 6. Create a class named Dog with an instance variable name. Create 3 objects of this class and assign different names to each. Print the names.
+class Dog {
+    String name;
+}
+
+// 7. Create a class named Mobile with instance variables brand and model. Create 2 objects and assign different values to each. Print the details of both mobiles.
+class Mobile {
+    String brand;
+    String model;
+}
+
+// 8. Create a class named Employee with instance variables name, id, and salary. Create 3 objects and assign values to each. Print the details of all employees.
+class Employee {
+    String name;
+    int id;
+    double salary;
+}
+
+// 9. Create a class named Circle with an instance variable radius. Create 2 objects and assign different radii. Print the circumference of both circles. Formula : C=2πr
+class Circle {
+    double radius;
+
+    double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// 10. Create a class named Laptop with instance variables brand, ram, and storage. Create 3 objects and assign values to each. Print the details of all laptops.
+class Laptop {
+    String brand;
+    int ram;
+    String storage;
+}
+
+// 11. Create a class named Counter with a static variable count. Increment this variable every time an object is created. Print the count after creating 3 objects.
+class Counter {
+    static int count = 0;
+
+    public Counter() {
+        count++;
+    }
+}
+
+// 12. Create a class named Employee with a static variable company_name. Assign a value to this variable and print it using the class name.
+class Employee2 {
+    static String companyName;
+}
+
+// 13. Create a class named Student with a static variable school_name and an instance variable name. Create 2 objects and print the school name and student names.
+class Student2 {
+    static String schoolName;
+    String name;
+}
+
+// 14. Create a class named Car with a static variable wheels and an instance variable color. Assign values to both and print them.
+class Car2 {
+    static int wheels;
+    String color;
+}
+
+// 15. Create a class named Bank with a static variable bank_name and an instance variable account_holder. Create 2 objects and print the bank name and account holder names.
+class Bank {
+    static String bankName;
+    String accountHolder;
+}
+
+// 20. Create a class named Test with an instance variable value. Create an object and try to print the value without assigning any value to it. Observe the output.
+class Test {
+    int value; // Instance variables are initialized with default values.
+}
+
+// 21. Create a class named Demo with a static variable count. Try to print the value of count without assigning any value to it. Observe the output.
+class Demo {
+    static int count;  // Static variables are initialized with default values.
+}
+
+// 23. Create a class named Sample with an instance variable data. Create an object and print the value of data without initializing it. Observe the output.
+class Sample {
+    int data;
+}
+
+// 24. Create a class named Trial with a static variable number. Print the value of number without initializing it. Observe the output.
+class Trial {
+    static int number;
+}
+// 25. Create a class named Person with instance variables name and age. Inside the main method display the name and age.
+class Person {
+    String name;
+    int age;
+}
+
+// 26. Create a class named BankAccount with instance variables account_number and balance. Inside the main method declare an amount and adds it to the balance. Create an object and test this method.
+class BankAccount2 {
+    String accountNumber;
+    double balance;
+
+    void deposit(double amount) {
+        balance += amount;
+    }
+}
+
+// 27. Create a class named Rectangle with instance variables length and width. Inside the main method calculate the area of the rectangle.
+class Rectangle2 {
+    double length;
+    double width;
+
+    double calculateArea() {
+        return length * width;
+    }
+}
+// 28. Create a class named Student with instance variables name, roll_number, and marks. Inside the main method print the grade based on the marks.
+class Student3 {
+    String name;
+    int rollNumber;
+    double marks;
+
+    String getGrade() {
+        if (marks > 90) {
+            return "A+";
+        } else if (marks > 80) {
+            return "A";
+        } else if (marks > 70) {
+            return "B";
+        } else if (marks > 60) {
+            return "C";
+        } else {
+            return "D";
+        }
+    }
+}
+
+// 29. Create a class named Employee with instance variables name, id, and salary. Inside the main method declare the variable as percentage and increases the salary by that percentage.
+class Employee3 {
+    String name;
+    int id;
+    double salary;
+
+    void increaseSalary(double percentage) {
+        salary += salary * (percentage / 100);
+    }
+}
+
+// 30. Create a class named Library with a static variable total_books and an instance variable book_name. Inside the main method increment total_books and assigns a book name. Print the total_books & book_name.
+class Library {
+    static int totalBooks;
+    String bookName;
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // 1. Create a class named Student with no attributes. Create an object of this class and print its address.
+        Student student1 = new Student();
+        System.out.println("Address of student1: " + student1);
+
+        // 2. Create a class named Car with an instance variable color. Create an object of this class and assign the color "Red" to it. Print the color.
+        Car car1 = new Car();
+        car1.color = "Red";
+        System.out.println("Car color: " + car1.color);
+
+        // 3. Create a class named Book with two instance variables: title and author. Create an object and assign values to these variables. Print the values.
+        Book book1 = new Book();
+        book1.title = "The Lord of the Rings";
+        book1.author = "J.R.R. Tolkien";
+        System.out.println("Book title: " + book1.title);
+        System.out.println("Book author: " + book1.author);
+
+        // 4. Create a class named Rectangle with instance variables length and width. Create an object and assign values to these variables. Print the area of the rectangle.
+        Rectangle rectangle1 = new Rectangle();
+        rectangle1.length = 10;
+        rectangle1.width = 5;
+        System.out.println("Rectangle area: " + rectangle1.calculateArea());
+
+        // 5. Create a class named BankAccount with an instance variable balance. Create an object and assign an initial balance of 1000. Print the balance.
+        BankAccount account1 = new BankAccount();
+        account1.balance = 1000;
+        System.out.println("Account balance: " + account1.balance);
+
+        // 6. Create a class named Dog with an instance variable name. Create 3 objects of this class and assign different names to each. Print the names.
+        Dog dog1 = new Dog();
+        dog1.name = "Buddy";
+        Dog dog2 = new Dog();
+        dog2.name = "Charlie";
+        Dog dog3 = new Dog();
+        dog3.name = "Max";
+        System.out.println("Dog 1 name: " + dog1.name);
+        System.out.println("Dog 2 name: " + dog2.name);
+        System.out.println("Dog 3 name: " + dog3.name);
+
+        // 7. Create a class named Mobile with instance variables brand and model. Create 2 objects and assign different values to each. Print the details of both mobiles.
+        Mobile mobile1 = new Mobile();
+        mobile1.brand = "Samsung";
+        mobile1.model = "Galaxy S21";
+        Mobile mobile2 = new Mobile();
+        mobile2.brand = "Apple";
+        mobile2.model = "iPhone 13";
+        System.out.println("Mobile 1: " + mobile1.brand + " " + mobile1.model);
+        System.out.println("Mobile 2: " + mobile2.brand + " " + mobile2.model);
+
+        // 8. Create a class named Employee with instance variables name, id, and salary. Create 3 objects and assign values to each. Print the details of all employees.
+        Employee employee1 = new Employee();
+        employee1.name = "John Doe";
+        employee1.id = 101;
+        employee1.salary = 50000;
+        Employee employee2 = new Employee();
+        employee2.name = "Jane Smith";
+        employee2.id = 102;
+        employee2.salary = 60000;
+        Employee employee3 = new Employee();
+        employee3.name = "Bob Johnson";
+        employee3.id = 103;
+        employee3.salary = 55000;
+        System.out.println("Employee 1: " + employee1.name + ", " + employee1.id + ", " + employee1.salary);
+        System.out.println("Employee 2: " + employee2.name + ", " + employee2.id + ", " + employee2.salary);
+        System.out.println("Employee 3: " + employee3.name + ", " + employee3.id + ", " + employee3.salary);
+
+        // 9. Create a class named Circle with an instance variable radius. Create 2 objects and assign different radii. Print the circumference of both circles. Formula : C=2πr
+        Circle circle1 = new Circle();
+        circle1.radius = 5;
+        Circle circle2 = new Circle();
+        circle2.radius = 7;
+        System.out.println("Circle 1 circumference: " + circle1.calculateCircumference());
+        System.out.println("Circle 2 circumference: " + circle2.calculateCircumference());
+
+        // 10. Create a class named Laptop with instance variables brand, ram, and storage. Create 3 objects and assign values to each. Print the details of all laptops.
+        Laptop laptop1 = new Laptop();
+        laptop1.brand = "Dell";
+        laptop1.ram = 8;
+        laptop1.storage = "256GB SSD";
+        Laptop laptop2 = new Laptop();
+        laptop2.brand = "HP";
+        laptop2.ram = 16;
+        laptop2.storage = "512GB SSD";
+        Laptop laptop3 = new Laptop();
+        laptop3.brand = "Lenovo";
+        laptop3.ram = 12;
+        laptop3.storage = "1TB HDD";
+        System.out.println("Laptop 1: " + laptop1.brand + ", " + laptop1.ram + ", " + laptop1.storage);
+        System.out.println("Laptop 2: " + laptop2.brand + ", " + laptop2.ram + ", " + laptop2.storage);
+        System.out.println("Laptop 3: " + laptop3.brand + ", " + laptop3.ram + ", " + laptop3.storage);
+
+        // 11. Create a class named Counter with a static variable count. Increment this variable every time an object is created. Print the count after creating 3 objects.
+        Counter counter1 = new Counter();
+        Counter counter2 = new Counter();
+        Counter counter3 = new Counter();
+        System.out.println("Counter count: " + Counter.count);
+
+        // 12. Create a class named Employee with a static variable company_name. Assign a value to this variable and print it using the class name.
+        Employee2.companyName = "ABC Corp";
+        System.out.println("Company name: " + Employee2.companyName);
+
+        // 13. Create a class named Student with a static variable school_name and an instance variable name. Create 2 objects and print the school name and student names.
+        Student2.schoolName = "XYZ School";
+        Student2 student21 = new Student2();
+        student21.name = "Alice";
+        Student2 student22 = new Student2();
+        student22.name = "Bob";
+        System.out.println("School name: " + Student2.schoolName);
+        System.out.println("Student 1 name: " + student21.name);
+        System.out.println("Student 2 name: " + student22.name);
+
+        // 14. Create a class named Car with a static variable wheels and an instance variable color. Assign values to both and print them.
+        Car2.wheels = 4;
+        Car2 car21 = new Car2();
+        car21.color = "Blue";
+        System.out.println("Car wheels: " + Car2.wheels);
+        System.out.println("Car color: " + car21.color);
+
+        // 15. Create a class named Bank with a static variable bank_name and an instance variable account_holder. Create 2 objects and print the bank name and account holder names.
+        Bank.bankName = "PQR Bank";
+        Bank bank1 = new Bank();
+        bank1.accountHolder = "Alice Smith";
+        Bank bank2 = new Bank();
+        bank2.accountHolder = "Bob Johnson";
+        System.out.println("Bank name: " + Bank.bankName);
+        System.out.println("Account holder 1: " + bank1.accountHolder);
+        System.out.println("Account holder 2: " + bank2.accountHolder);
+
+        // 16. Create a class named Calculator inside the main method that declares two local variables a and b. Print the sum of these variables.
+        class Calculator {
+            void calculateSum() {
+                int a = 10;
+                int b = 20;
+                System.out.println("Sum: " + (a + b));
+            }
+        }
+        Calculator calculator = new Calculator();
+        calculator.calculateSum();
+
+        // 17. Create a class named Greeting inside the main method that declares a local variable name and prints "Hello, [name]".
+        class Greeting {
+            void printGreeting(String name) {
+                System.out.println("Hello, " + name);
+            }
+        }
+        Greeting greeting = new Greeting();
+        greeting.printGreeting("John");
+
+        // 18. Create a class named MathOperations inside the main method that declares two local variables x and y. Print the product.
+        class MathOperations {
+            void printProduct(int x, int y) {
+                System.out.println("Product: " + (x * y));
+            }
+        }
+        MathOperations mathOperations = new MathOperations();
+        mathOperations.printProduct(5, 8);
+
+        // 19. Create a class named Temperature inside the main method that declares a local variable celsius and prints the converted temperature.
+        class Temperature {
+            void printConvertedTemperature(double celsius) {
+                double fahrenheit = (celsius * 9 / 5) + 32;
+                System.out.println(celsius + " Celsius is equal to " + fahrenheit + " Fahrenheit");
+            }
+        }
+        Temperature temperature = new Temperature();
+        temperature.printConvertedTemperature(25.0);
+
+        // 20. Create a class named Test with an instance variable value. Create an object and try to print the value without assigning any value to it. Observe the output.
+        Test test = new Test();
+        System.out.println("Test value: " + test.value); // Output: 0 (default value of int)
+
+        // 21. Create a class named Demo with a static variable count. Try to print the value of count without assigning any value to it. Observe the output.
+        Demo demo = new Demo();
+        System.out.println("Demo count: " + Demo.count); // Output: 0 (default value of int)
+
+        // 22. Create a class named Example inside the main method that declares a local variable num but does not assign any value to it. Try to print num and observe the output.
+        class Example {
+            void printNum() {
+                int num;
+                //System.out.println("Example num: " + num); // Error: Variable 'num' might not have been initialized
+            }
+        }
+        Example example = new Example();
+        example.printNum();
+
+
+        // 23. Create a class named Sample with an instance variable data. Create an object and print the value of data without initializing it. Observe the output.
+        Sample sample = new Sample();
+        System.out.println("Sample data: " + sample.data); // Output: 0
+
+        // 24. Create a class named Trial with a static variable number. Print the value of number without initializing it. Observe the output.
+        Trial trial = new Trial();
+        System.out.println("Trial number: " + Trial.number); // Output: 0
+
+        // 25. Create a class named Person with instance variables name and age. Inside the main method display the name and age.
+        Person person = new Person();
+        person.name = "Alice";
+        person.age = 30;
+        System.out.println("Person Name: " + person.name + ", Age: " + person.age);
+
+       // 26. Create a class named BankAccount with instance variables account_number and balance. Inside the main method declare an amount and adds it to the balance. Create an object and test this method.
+        BankAccount2 account2 = new BankAccount2();
+        account2.accountNumber = "1234567890";
+        account2.balance = 1000;
+        double depositAmount = 500;
+        account2.deposit(depositAmount);
+        System.out.println("Account Number: " + account2.accountNumber + ", Updated Balance: " + account2.balance);
+
+        // 27. Create a class named Rectangle with instance variables length and width. Inside the main method calculate the area of the rectangle.
+        Rectangle2 rectangle2 = new Rectangle2();
+        rectangle2.length = 12.5;
+        rectangle2.width = 8.5;
+        double area = rectangle2.calculateArea();
+        System.out.println("Rectangle Area: " + area);
+
+        // 28. Create a class named Student with instance variables name, roll_number, and marks. Inside the main method print the grade based on the marks.
+        Student3 student3 = new Student3();
+        student3.name = "David";
+        student3.rollNumber = 10;
+        student3.marks = 85;
+        String grade = student3.getGrade();
+        System.out.println("Student Name: " + student3.name + ", Roll Number: " + student3.rollNumber + ", Grade: " + grade);
+
+        // 29. Create a class named Employee with instance variables name, id, and salary. Inside the main method declare the variable as percentage and increases the salary by that percentage.
+        Employee3 employee31 = new Employee3();
+        employee31.name = "Eve";
+        employee31.id = 201;
+        employee31.salary = 75000;
+        double percentageIncrease = 10;
+        employee31.increaseSalary(percentageIncrease);
+        System.out.println("Employee Name: " + employee31.name + ", ID: " + employee31.id + ", Updated Salary: " + employee31.salary);
+
+        // 30. Create a class named Library with a static variable total_books and an instance variable book_name. Inside the main method increment total_books and assigns a book name. Print the total_books & book_name.
+        Library library1 = new Library();
+        Library.totalBooks++;
+        library1.bookName = "Java Programming";
+        System.out.println("Total Books: " + Library.totalBooks + ", Book Name: " + library1.bookName);
+        scanner.close();
+    }
+}
