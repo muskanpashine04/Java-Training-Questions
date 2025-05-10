@@ -1,0 +1,164 @@
+import java.util.Scanner;
+
+// 1. Animal and Dog classes
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+// 2. Shape, Circle, and Square classes
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Square extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a Square");
+    }
+}
+
+// 3. Vehicle and Car classes
+class Vehicle {
+    void startEngine() {
+        System.out.println("Vehicle engine started");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("Car engine started");
+    }
+}
+
+// 4. Employee and Manager classes
+class Employee {
+    double salary;
+
+    public Employee(double salary) {
+        this.salary = salary;
+    }
+
+    double calculateSalary() {
+        System.out.print("Employee ");
+        return salary;
+    }
+}
+
+class Manager extends Employee {
+    private double bonus;
+
+    public Manager(double salary, double bonus) {
+        super(salary);
+        this.bonus = bonus;
+    }
+
+    @Override
+    double calculateSalary() {
+        System.out.print("Manager ");
+        return salary + bonus;
+    }
+}
+
+// 5. Person and Student classes
+class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+class Student extends Person {
+    String grade;
+    String schoolName;
+
+    public Student(String name, int age, String grade, String schoolName) {
+        super(name, age);
+        this.grade = grade;
+        this.schoolName = schoolName;
+    }
+
+    @Override
+    void displayDetails() {
+        super.displayDetails();
+        System.out.println("Grade: " + grade);
+        System.out.println("School Name: " + schoolName);
+    }
+}
+
+public class MethodOverridingDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Animal and Dog
+        System.out.println("1. Animal and Dog:");
+        Dog myDog = new Dog();
+        myDog.sound();
+
+        // 2. Shape, Circle, and Square
+        System.out.println("\n2. Shape, Circle, and Square:");
+        Shape myCircle = new Circle();
+        myCircle.draw();
+        Shape mySquare = new Square();
+        mySquare.draw();
+
+        // 3. Vehicle and Car
+        System.out.println("\n3. Vehicle and Car:");
+        Car myCar = new Car();
+        myCar.startEngine();
+
+        // 4. Employee and Manager
+        System.out.println("\n4. Employee and Manager:");
+        Employee employee = new Employee(50000);
+        Manager manager = new Manager(80000, 20000);
+        System.out.println("Salary: " + employee.calculateSalary());
+        System.out.println("Salary: " + manager.calculateSalary());
+
+        // 5. Person and Student
+        System.out.println("\n5. Person and Student:");
+        System.out.print("Enter person's name: ");
+        String personName = scanner.next();
+        System.out.print("Enter person's age: ");
+        int personAge = scanner.nextInt();
+        Person person = new Person(personName, personAge);
+        person.displayDetails();
+
+        System.out.print("Enter student's name: ");
+        String studentName = scanner.next();
+        System.out.print("Enter student's age: ");
+        int studentAge = scanner.nextInt();
+        System.out.print("Enter student's grade: ");
+        String studentGrade = scanner.next();
+        System.out.print("Enter student's school name: ");
+        String studentSchoolName = scanner.next();
+        Student student = new Student(studentName, studentAge, studentGrade, studentSchoolName);
+        student.displayDetails();
+
+        scanner.close();
+    }
+}
+
