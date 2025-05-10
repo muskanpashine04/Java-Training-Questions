@@ -1,0 +1,302 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+// 1. Create a class Student with fields name, rollNumber, and marks. Write a method to display student details. Create 3 student objects and display their data.
+class Student {
+    String name;
+    int rollNumber;
+    double marks;
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("Marks: " + marks);
+        System.out.println("--------------------");
+    }
+}
+
+// 2. Create a class Rectangle with length and breadth as fields. Add methods to calculate area and perimeter. Create objects with different values and call those methods.
+class Rectangle {
+    double length;
+    double breadth;
+
+    double calculateArea() {
+        return length * breadth;
+    }
+
+    double calculatePerimeter() {
+        return 2 * (length + breadth);
+    }
+}
+
+// 3. Create a class BankAccount with fields accountNumber, accountHolder, and balance. Implement methods to deposit and withdraw money.
+class BankAccount {
+    String accountNumber;
+    String accountHolder;
+    double balance;
+
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println(amount + " deposited. New balance: " + balance);
+    }
+
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println(amount + " withdrawn. New balance: " + balance);
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+    void displayBalance(){
+        System.out.println("Account Balance: "+balance);
+    }
+}
+
+// 4. Create a class Car with fields brand, model, and price. Write a method to display car details. Create multiple objects and display info.
+class Car {
+    String brand;
+    String model;
+    double price;
+
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Price: " + price);
+        System.out.println("--------------------");
+    }
+}
+
+// 5. Create a class Circle with radius. Write methods to calculate area and circumference of the circle.
+class Circle {
+    double radius;
+
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// 6. Create a class Book with title, author, and price. Add a method to apply a discount of 10% and display the final price.
+class Book {
+    String title;
+    String author;
+    double price;
+
+    void applyDiscount() {
+        price *= 0.9; // Apply 10% discount
+    }
+
+    void displayFinalPrice() {
+        System.out.println("Final price of " + title + " after discount: " + price);
+    }
+}
+
+// 7. Create a class Employee with name, id, and salary. Write a method to give a 5% salary increment. Print details before and after increment.
+class Employee {
+    String name;
+    int id;
+    double salary;
+
+    void giveIncrement() {
+        double increment = salary * 0.05;
+        salary += increment;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("ID: " + id);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+// 8. Create a class Movie with name, rating, and releaseYear. Create 5 movie objects and display movies released after 2020.
+class Movie {
+    String name;
+    double rating;
+    int releaseYear;
+
+     void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Rating: " + rating);
+        System.out.println("Release Year: " + releaseYear);
+    }
+}
+
+// 9. Create a class Calculator with methods add, subtract, multiply, and divide. Use objects to call these methods.
+class Calculator {
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    double subtract(double a, double b) {
+        return a - b;
+    }
+
+    double multiply(double a, double b) {
+        return a * b;
+    }
+
+    double divide(double a, double b) {
+        if (b == 0) {
+            System.out.println("Cannot divide by zero.");
+            return Double.NaN; // Return NaN (Not a Number)
+        }
+        return a / b;
+    }
+}
+
+// 10. Create a class Laptop with brand, RAM, and price. Add a constructor to initialize values and a method to display them.
+class Laptop {
+    String brand;
+    int RAM;
+    double price;
+
+    public Laptop(String brand, int RAM, double price) {
+        this.brand = brand;
+        this.RAM = RAM;
+        this.price = price;
+    }
+
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("RAM: " + RAM + "GB");
+        System.out.println("Price: $" + price);
+        System.out.println("--------------------");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Student class
+        Student student1 = new Student();
+        student1.name = "Alice";
+        student1.rollNumber = 101;
+        student1.marks = 85.5;
+
+        Student student2 = new Student();
+        student2.name = "Bob";
+        student2.rollNumber = 102;
+        student2.marks = 92.0;
+
+        Student student3 = new Student();
+        student3.name = "Charlie";
+        student3.rollNumber = 103;
+        student3.marks = 78.5;
+
+        System.out.println("Student Details:");
+        student1.displayDetails();
+        student2.displayDetails();
+        student3.displayDetails();
+
+        // 2. Rectangle class
+        Rectangle rectangle1 = new Rectangle();
+        rectangle1.length = 10;
+        rectangle1.breadth = 5;
+
+        Rectangle rectangle2 = new Rectangle();
+        rectangle2.length = 7;
+        rectangle2.breadth = 3;
+
+        System.out.println("Rectangle 1 Area: " + rectangle1.calculateArea());
+        System.out.println("Rectangle 1 Perimeter: " + rectangle1.calculatePerimeter());
+        System.out.println("Rectangle 2 Area: " + rectangle2.calculateArea());
+        System.out.println("Rectangle 2 Perimeter: " + rectangle2.calculatePerimeter());
+
+        // 3. BankAccount class
+        BankAccount account1 = new BankAccount();
+        account1.accountNumber = "1234567890";
+        account1.accountHolder = "John Doe";
+        account1.balance = 1000;
+
+        account1.deposit(500);
+        account1.withdraw(200);
+        account1.withdraw(1500); // Test insufficient funds
+        account1.displayBalance();
+
+        // 4. Car class
+        Car car1 = new Car("Toyota", "Camry", 25000);
+        Car car2 = new Car("Honda", "Civic", 22000);
+        Car car3 = new Car("Ford", "Mustang", 35000);
+
+        System.out.println("\nCar Details:");
+        car1.displayDetails();
+        car2.displayDetails();
+        car3.displayDetails();
+
+        // 5. Circle class
+        Circle circle1 = new Circle();
+        circle1.radius = 5;
+
+        System.out.println("Circle 1 Area: " + circle1.calculateArea());
+        System.out.println("Circle 1 Circumference: " + circle1.calculateCircumference());
+
+        // 6. Book class
+        Book book1 = new Book();
+        book1.title = "Java Programming";
+        book1.author = "John Smith";
+        book1.price = 25;
+
+        book1.applyDiscount();
+        book1.displayFinalPrice();
+
+        // 7. Employee class
+        Employee employee1 = new Employee();
+        employee1.name = "Jane Doe";
+        employee1.id = 501;
+        employee1.salary = 50000;
+
+        System.out.println("\nEmployee Details Before Increment:");
+        employee1.displayDetails();
+        employee1.giveIncrement();
+        System.out.println("\nEmployee Details After Increment:");
+        employee1.displayDetails();
+
+        // 8. Movie class
+        Movie movie1 = new Movie("Oppenheimer", 8.4, 2023);
+        Movie movie2 = new Movie("Barbie", 7.0, 2023);
+        Movie movie3 = new Movie("The Godfather", 9.2, 1972);
+        Movie movie4 = new Movie("Interstellar", 8.6, 2014);
+        Movie movie5 = new Movie("Dune: Part Two", 8.8, 2024);
+
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie1);
+        movies.add(movie2);
+        movies.add(movie3);
+        movies.add(movie4);
+        movies.add(movie5);
+
+        System.out.println("\nMovies released after 2020:");
+        for (Movie movie : movies) {
+            if (movie.releaseYear > 2020) {
+                movie.displayDetails();
+            }
+        }
+
+        // 9. Calculator class
+        Calculator calculator = new Calculator();
+        double a = 10;
+        double b = 5;
+
+        System.out.println("Addition: " + calculator.add(a, b));
+        System.out.println("Subtraction: " + calculator.subtract(a, b));
+        System.out.println("Multiplication: " + calculator.multiply(a, b));
+        System.out.println("Division: " + calculator.divide(a, b));
+
+        // 10. Laptop class
+        Laptop laptop1 = new Laptop("Dell", 16, 1200);
+        Laptop laptop2 = new Laptop("HP", 8, 1000);
+
+        System.out.println("\nLaptop Details:");
+        laptop1.displayDetails();
+        laptop2.displayDetails();
+
+        scanner.close();
+    }
+}
+
