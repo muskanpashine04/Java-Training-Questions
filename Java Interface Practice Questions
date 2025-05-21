@@ -1,0 +1,133 @@
+Q1. Create two interfaces Walkable and Runnable. 
+Each should have a method: walk() and run() respectively.
+ Then, create a class Human that implements both interfaces and defines both methods.
+ Create a main method where an object of Human is created and both methods are called
+
+
+// Walkable.java
+interface Walkable {
+    void walk();
+}
+
+// Runnable.java
+interface Runnable {
+    void run();
+}
+
+// Human.java
+class Human implements Walkable, Runnable {
+    @Override
+    public void walk() {
+        System.out.println("Human is walking.");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Human is running.");
+    }
+
+    public static void main(String[] args) {
+        Human human = new Human();
+        human.walk();
+        human.run();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q2. Create two interfaces A and B. Both interfaces should have a method named display().
+ Then, create a class Demo that implements both interfaces.
+ Implement the display() method and call it in the main method using a Demo object
+
+// A.java
+interface A {
+    void display();
+}
+
+// B.java
+interface B {
+    void display();
+}
+
+// Demo.java
+class Demo implements A, B {
+    @Override
+    public void display() {
+        System.out.println("Display method implemented in Demo class.");
+    }
+
+    public static void main(String[] args) {
+        Demo demo = new Demo();
+        demo.display();
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q3. Create an interface Animal with a method makeSound().
+ Then, create a class Dog that implements Animal and overrides makeSound() to print "Bark".
+ In the main method, use the interface reference to call the method from Dog
+
+// Animal.java
+interface Animal {
+    void makeSound();
+}
+
+// Dog.java
+class Dog implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+
+    public static void main(String[] args) {
+        Animal animal = new Dog(); // Interface reference to Dog object
+        animal.makeSound();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q4. Create an interface Shape with a method area().
+ Then, create a class Circle that implements Shape and calculates the area using radius = 5.
+ Print the area in the main method.
+
+// Shape.java
+interface Shape {
+    double area();
+}
+
+// Circle.java
+class Circle implements Shape {
+    private double radius = 5;
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle();
+        System.out.println("Area of the circle: " + circle.area());
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. Create an interface Vehicle with a default method start() that prints "Vehicle is starting...".
+ Create a class Car that implements Vehicle.
+ Call the default method from an object of Car in the main method
+
+// Vehicle.java
+interface Vehicle {
+    default void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
+
+// Car.java
+class Car implements Vehicle {
+    // Inherits the default start() method
+}
+
+// Main.java (to run Car)
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+    }
+}
