@@ -1,0 +1,171 @@
+ Q1. What will be the output of the following code?
+ public class Test {
+    public static void main(String[] args) {
+        String str = null;
+        System.out.println(str.length());
+    }
+ }
+ a) null
+ b) 0
+ c) Compile-time error
+ d) Runtime Exception
+
+So the correct answer is d) Runtime Exception.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q2. Complete the try-catch block to handle the exception and print "Cannot divide by zero".
+ public class Test {
+    public static void main(String[] args) {
+        int a = 10, b = 0;
+        // Your code here
+        System.out.println(a / b);
+    }
+ }
+
+public class TestQ2 {
+    public static void main(String[] args) {
+        int a = 10, b = 0;
+        try {
+            System.out.println(a / b);
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q3. Predict the output:
+ public class Test {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        try {
+            System.out.println(arr[5]);
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e);
+        }
+        System.out.println("End of program");
+    }
+ }
+
+The output will be:
+
+Exception occurred: java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3
+End of program
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q4. Write a program that takes a string input from the user and prints its uppercase. Use exception
+ handling to catch if the string is null
+
+import java.util.Scanner;
+
+public class TestQ4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+        try {
+            if (inputString == null) {
+                throw new NullPointerException("Input string is null.");
+            }
+            System.out.println("Uppercase: " + inputString.toUpperCase());
+        } catch (NullPointerException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}
+If you input null, the output will be:
+
+Error: Input string is null.
+If you input a string like "hello", the output will be:
+
+Uppercase: HELLO
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q5. Fill in the blanks:
+ public class Test {
+    public static void main(String[] args) {
+        String s = null;
+        try {
+            System.out.println(s.toUpperCase());
+        } catch (__________ e) {
+            System.out.println("Caught a null pointer exception!");
+        }
+    }
+ }
+ a) Exception
+ b) NullPointerException
+c) ArithmeticException
+ d) ArrayIndexOutOfBoundsException
+
+The correct answer is b) NullPointerException.
+
+Java
+
+public class TestQ5 {
+    public static void main(String[] args) {
+        String s = null;
+        try {
+            System.out.println(s.toUpperCase());
+        } catch (NullPointerException e) {
+            System.out.println("Caught a null pointer exception!");
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q6. What type of exception will be thrown if a number is divided by zero?
+ a) NullPointerException
+ b) ArithmeticException
+ c) ArrayIndexOutOfBoundsException
+ d) ClassNotFoundException
+
+The correct answer is b) ArithmeticException.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Q7. Predict the output:
+ public class Test {
+    public static void main(String[] args) {
+        try {
+            String s = null;
+            System.out.println(s.length());
+        } finally {
+            System.out.println("Finally block executed");
+        }
+    }
+ }
+
+The output will be:
+
+Exception in thread "main" java.lang.NullPointerException
+	at TestQ7.main(TestQ7.java:5)
+Finally block executed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q8. Create a try-catch block that handles ArrayIndexOutOfBoundsException when accessing an
+ array element out of range
+
+public class TestQ8 {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30};
+        try {
+            System.out.println(numbers[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught ArrayIndexOutOfBoundsException: Attempted to access an index outside the array bounds.");
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q9. Which block is always executed whether an exception is handled or not?
+ a) try
+ b) catch
+ c) finally
+d) throws
+
+The correct answer is c) finally.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q10. What is the purpose of using multiple catch blocks after a try block?
+ a) To catch multiple exceptions
+ b) To execute multiple try blocks
+ c) To avoid finally block
+ d) None of the above
+
+The correct answer is a) To catch multiple exceptions.
+
+
