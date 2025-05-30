@@ -1,0 +1,124 @@
+
+ Q1. Frequency Count of Characters in a String
+ Input: "programming"
+ Output: {p=1, r=2, o=1, g=2, a=1, m=2, i=1, n=1}
+ Code:
+ import java.util.*;
+ public class CharFrequency {
+    public static void main(String[] args) {
+        String str = "programming";
+        Map<Character, Integer> freqMap = new HashMap<>();
+        for (char ch : str.toCharArray()) {
+            freqMap.put(ch, freqMap.getOrDefault(ch, 0) + 1);
+        }
+        System.out.println("Character Frequencies: " + freqMap);
+    }
+ }
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Q2. Count Word Frequency in a Sentence
+ Input: "java is fun and java is powerful"
+ Output: {java=2, is=2, fun=1, and=1, powerful=1}
+ Code:
+ import java.util.*;
+ public class WordFrequency {
+    public static void main(String[] args) {
+        String sentence = "java is fun and java is powerful";
+        String[] words = sentence.split(" ");
+        Map<String, Integer> freqMap = new HashMap<>();
+        for (String word : words) {
+            freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);
+        }
+        System.out.println("Word Frequencies: " + freqMap);
+    }
+ }
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Q3. Find First Non-Repeating Character
+ Input: "aabbcdde"
+ Output: c
+Java Map Interview Questions & Solutions
+ Code:
+ import java.util.*;
+ public class FirstNonRepeatingChar {
+    public static void main(String[] args) {
+        String str = "aabbcdde";
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        for (char ch : str.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println("First Non-Repeating Character: " + entry.getKey());
+                break;
+            }
+        }
+    }
+ }
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+ Q4. Check if Two Strings Are Anagrams
+ Input: "listen", "silent"
+ Output: true
+ Code:
+ import java.util.*;
+ public class AnagramCheck {
+    public static void main(String[] args) {
+        String s1 = "listen";
+        String s2 = "silent";
+        if (isAnagram(s1, s2)) {
+            System.out.println("They are anagrams");
+        } else {
+            System.out.println("They are not anagrams");
+        }
+    }
+    static boolean isAnagram(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s1.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+ Java Map Interview Questions & Solutions
+        for (char c : s2.toCharArray()) {
+            if (!map.containsKey(c) || map.get(c) == 0) return false;
+            map.put(c, map.get(c) - 1);
+        }
+        return true;
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. Sort a Map by Keys and Values
+ Input: {"Banana": 10, "Apple": 30, "Mango": 20}
+ Output:
+ Sorted by key -> Apple, Banana, Mango
+ Sorted by value -> Banana, Mango, Apple
+ Sort by Key:
+ import java.util.*;
+ public class SortByKey {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Banana", 10);
+        map.put("Apple", 30);
+        map.put("Mango", 20);
+        Map<String, Integer> treeMap = new TreeMap<>(map);
+        System.out.println("Sorted by Keys: " + treeMap);
+    }
+ }
+ Sort by Value:
+ import java.util.*;
+ public class SortByValue {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Banana", 10);
+        map.put("Apple", 30);
+        map.put("Mango", 20);
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+Java Map Interview Questions & Solutions
+        System.out.println("Sorted by Values:");
+        for (Map.Entry<String, Integer> entry : list) {
+            System.out.println(entry.getKey() + " => " + entry.getValue());
+        }
+    }
+ }
