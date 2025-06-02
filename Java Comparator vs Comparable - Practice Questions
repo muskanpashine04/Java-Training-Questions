@@ -1,0 +1,26 @@
+Java Comparator vs Comparable - Practice Questions
+
+
+
+ Question 1: Sort students by rollNo in descending order using Comparator.
+ Write a custom Comparator to sort a list of Student objects by their roll number in descending order.
+ Example:
+ class sortByRollNoDesc implements Comparator<Student> {
+    public int compare(Student s1, Student s2) {
+        return s2.rollNo - s1.rollNo;  // descending order
+    }
+ }
+ Use with:
+ Collections.sort(list, new sortByRollNoDesc());
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Question 2: Difference between Comparable and Comparator with examples.
+ Explain the difference between Comparable and Comparator interfaces in Java.
+ Comparable:- Defines natural ordering inside the class.
+              Implements compareTo() method.
+              Example: public int compareTo(Student s) { return this.rollNo - s.rollNo; }
+ Comparator:- Defines external sorting logic.
+              Implements compare(Student s1, Student s2) method in a separate class.
+              Example: sortByName or sortByAge class.
+ When to use:- 
+ Comparable: when default sorting logic is needed within the class.
+ Comparator: when you need multiple sorting options outside the class.
