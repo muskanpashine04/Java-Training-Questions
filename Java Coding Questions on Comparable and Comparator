@@ -1,0 +1,374 @@
+ Question 1: Sort by Age Ascending, then by Name Alphabetically
+ Create a custom Comparator to sort a list of Student objects by age in ascending order. If two students have
+ the same age, then sort by name alphabetically
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+// Student class (as defined above)
+// class Student { ... }
+class Student {
+    private String name;
+    private int age;
+    private int rollNumber;
+
+    public Student(String name, int age, int rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               ", rollNumber=" + rollNumber +
+               '}';
+    }
+}
+
+class AgeNameComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        // Sort by age ascending
+        int ageComparison = Integer.compare(s1.getAge(), s2.getAge());
+        if (ageComparison != 0) {
+            return ageComparison;
+        }
+        // If ages are the same, sort by name alphabetically
+        return s1.getName().compareTo(s2.getName());
+    }
+}
+
+public class Question1 {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 20, 101));
+        students.add(new Student("Bob", 22, 103));
+        students.add(new Student("Charlie", 20, 102));
+        students.add(new Student("David", 25, 105));
+        students.add(new Student("Alice", 22, 100)); // Another Alice with same age as Bob
+
+        System.out.println("Original List:");
+        students.forEach(System.out::println);
+
+        Collections.sort(students, new AgeNameComparator());
+
+        System.out.println("\nSorted by Age Asc, then Name Alpha (Q1):");
+        students.forEach(System.out::println);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Question 2: Sort by Name Length using Comparator
+ Create a Comparator that sorts Student objects based on the length of their names. Shorter names should
+ come first
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+// Student class (as defined above)
+// class Student { ... }
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student {
+    private String name;
+    private int age;
+    private int rollNumber;
+
+    public Student(String name, int age, int rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               ", rollNumber=" + rollNumber +
+               '}';
+    }
+}
+
+class NameLengthComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        return Integer.compare(s1.getName().length(), s2.getName().length());
+    }
+}
+
+public class Question2 {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 20, 101));
+        students.add(new Student("Bob", 22, 103));
+        students.add(new Student("Charlie", 20, 102));
+        students.add(new Student("David", 25, 105));
+        students.add(new Student("Eve", 21, 104));
+
+        System.out.println("Original List:");
+        students.forEach(System.out::println);
+
+        Collections.sort(students, new NameLengthComparator());
+
+        System.out.println("\nSorted by Name Length (Q2):");
+        students.forEach(System.out::println);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Question 3: Sort by Roll Number in Descending Order
+ Create a Comparator to sort the list of Student objects based on roll number in descending order
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+// Student class (as defined above)
+// class Student { ... }
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student {
+    private String name;
+    private int age;
+    private int rollNumber;
+
+    public Student(String name, int age, int rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               ", rollNumber=" + rollNumber +
+               '}';
+    }
+}
+
+class RollNumberDescendingComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        return Integer.compare(s2.getRollNumber(), s1.getRollNumber()); // s2 vs s1 for descending
+    }
+}
+
+public class Question3 {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 20, 101));
+        students.add(new Student("Bob", 22, 103));
+        students.add(new Student("Charlie", 20, 102));
+        students.add(new Student("David", 25, 105));
+
+        System.out.println("Original List:");
+        students.forEach(System.out::println);
+
+        Collections.sort(students, new RollNumberDescendingComparator());
+
+        System.out.println("\nSorted by Roll Number Descending (Q3):");
+        students.forEach(System.out::println);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Question 4: Implement Comparable in Student to Sort by Roll Number
+ Modify the Student class to implement the Comparable interface and sort students by roll number in
+ ascending order. Then use Collections.sort(list) without a Comparator.
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+// Modified Student class
+class Student implements Comparable<Student> {
+    private String name;
+    private int age;
+    private int rollNumber;
+
+    public Student(String name, int age, int rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               ", rollNumber=" + rollNumber +
+               '}';
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        // Sort by roll number in ascending order
+        return Integer.compare(this.rollNumber, other.rollNumber);
+    }
+}
+
+public class Question4 {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 20, 101));
+        students.add(new Student("Bob", 22, 103));
+        students.add(new Student("Charlie", 20, 100)); // Changed roll number
+        students.add(new Student("David", 25, 105));
+
+        System.out.println("Original List:");
+        students.forEach(System.out::println);
+
+        // Uses the natural ordering defined by compareTo in the Student class
+        Collections.sort(students);
+
+        System.out.println("\nSorted by Roll Number Ascending (using Comparable) (Q4):");
+        students.forEach(System.out::println);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 5: Sort by Age Descending, then Name Descending
+ Write a Comparator that first sorts students by age in descending order. If ages are equal, then sort by name
+ in reverse alphabetical order
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+// Student class (as defined at the beginning or reuse the one from Q4 without Comparable for this specific test)
+// For this question, we'll use the basic Student class without Comparable
+/*
+class Student {
+    private String name;
+    private int age;
+    private int rollNumber;
+
+    public Student(String name, int age, int rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               ", rollNumber=" + rollNumber +
+               '}';
+    }
+}
+*/
+
+class AgeNameDescendingComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        // Sort by age descending
+        int ageComparison = Integer.compare(s2.getAge(), s1.getAge()); // s2 vs s1 for descending
+        if (ageComparison != 0) {
+            return ageComparison;
+        }
+        // If ages are the same, sort by name in reverse alphabetical order
+        return s2.getName().compareTo(s1.getName()); // s2 vs s1 for reverse alphabetical
+    }
+}
+
+public class Question5 {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 20, 101));
+        students.add(new Student("Bob", 22, 103));
+        students.add(new Student("Charlie", 20, 102));
+        students.add(new Student("David", 25, 105));
+        students.add(new Student("Zoe", 20, 100)); // Same age as Alice and Charlie
+
+        System.out.println("Original List:");
+        students.forEach(System.out::println);
+
+        Collections.sort(students, new AgeNameDescendingComparator());
+
+        System.out.println("\nSorted by Age Desc, then Name Desc (Q5):");
+        students.forEach(System.out::println);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
