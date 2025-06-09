@@ -1,0 +1,107 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamApiPractice {
+
+    public static void main(String[] args) {
+
+        // Q1. Given a list of integers, return a list of squares of only even numbers.
+        // Input: [1, 2, 3, 4, 5]
+        // Output: [4, 16]
+        List<Integer> numbersQ1 = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> resultQ1 = numbersQ1.stream()
+                .filter(n -> n % 2 == 0)
+                .map(n -> n * n)
+                .collect(Collectors.toList());
+        System.out.println("Q1 Output: " + resultQ1); // Expected: [4, 16]
+
+        // Q2. Given a list of names, return a list of names in uppercase which have more than 3 characters.
+        // Input: ["Ram", "Shyam", "Om", "Sita"]
+        // Output: ["SHYAM", "SITA"]
+        List<String> namesQ2 = Arrays.asList("Ram", "Shyam", "Om", "Sita");
+        List<String> resultQ2 = namesQ2.stream()
+                .filter(name -> name.length() > 3)
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        System.out.println("Q2 Output: " + resultQ2); // Expected: ["SHYAM", "SITA"]
+
+        // Q3. Find the sum of all odd numbers in a list.
+        // Input: [1, 2, 3, 4, 5]
+        // Output: 9
+        List<Integer> numbersQ3 = Arrays.asList(1, 2, 3, 4, 5);
+        int resultQ3 = numbersQ3.stream()
+                .filter(n -> n % 2 != 0)
+                .reduce(0, Integer::sum);
+        System.out.println("Q3 Output: " + resultQ3); // Expected: 9
+
+        // Q4. Convert a list of words to their lengths.
+        // Input: ["Java", "Stream", "API"]
+        // Output: [4, 6, 3]
+        List<String> wordsQ4 = Arrays.asList("Java", "Stream", "API");
+        List<Integer> resultQ4 = wordsQ4.stream()
+                .map(String::length)
+                .collect(Collectors.toList());
+        System.out.println("Q4 Output: " + resultQ4); // Expected: [4, 6, 3]
+
+        // Q5. From a list of prices, remove duplicates, filter prices above 1000, and return total sum.
+        // Input: [999, 1000, 1500, 1000, 2000]
+        // Output: 3500
+        List<Integer> pricesQ5 = Arrays.asList(999, 1000, 1500, 1000, 2000);
+        int resultQ5 = pricesQ5.stream()
+                .distinct()
+                .filter(price -> price > 1000)
+                .reduce(0, Integer::sum);
+        System.out.println("Q5 Output: " + resultQ5); // Expected: 3500
+
+        // Q6. Count how many strings in a list start with letter 'A' or 'a'.
+        // Input: ["apple", "banana", "apricot", "cherry", "Avocado"]
+        // Output: 3
+        List<String> wordsQ6 = Arrays.asList("apple", "banana", "apricot", "cherry", "Avocado");
+        long resultQ6 = wordsQ6.stream()
+                .filter(s -> s.toLowerCase().startsWith("a"))
+                .count();
+        System.out.println("Q6 Output: " + resultQ6); // Expected: 3
+
+        // Q7. Return a comma-separated string of all names with more than 4 letters.
+        // Input: ["John", "Ravi", "Abhishek", "Raj"]
+        // Output: "Abhishek" (The original question output "Abhishek" implies a single name, but
+        //                          "John" also has 4 letters. Assuming it should be only names with > 4 letters.
+        //                          If the intent was to collect all such names, the output would be "Abhishek".
+        //                          If the original output "Abhishek" was a typo and should include all names > 4 letters,
+        //                          the output would be "Abhishek".
+        //                          Let's assume the question meant collect all names with more than 4 letters,
+        //                          and if there's only one such name, it would be just that name.
+        //                          If there were multiple, they'd be comma-separated.)
+        List<String> namesQ7 = Arrays.asList("John", "Ravi", "Abhishek", "Raj");
+        String resultQ7 = namesQ7.stream()
+                .filter(name -> name.length() > 4)
+                .collect(Collectors.joining(", ")); // Collects all names with > 4 letters, comma-separated.
+        System.out.println("Q7 Output: " + resultQ7); // Expected: "Abhishek" (based on provided output, implies only one matched)
+
+        // Q8. Check if any number in a list is divisible by 7.
+        // Input: [10, 14, 22, 30]
+        // Output: true
+        List<Integer> numbersQ8 = Arrays.asList(10, 14, 22, 30);
+        boolean resultQ8 = numbersQ8.stream()
+                .anyMatch(n -> n % 7 == 0);
+        System.out.println("Q8 Output: " + resultQ8); // Expected: true
+
+        // Q9. Multiply all the numbers in a list using reduce().
+        // Input: [1, 2, 3, 4]
+        // Output: 24
+        List<Integer> numbersQ9 = Arrays.asList(1, 2, 3, 4);
+        int resultQ9 = numbersQ9.stream()
+                .reduce(1, (a, b) -> a * b);
+        System.out.println("Q9 Output: " + resultQ9); // Expected: 24
+
+        // Q10. From a list of sentences, return list of words (flat list).
+        // Input: ["Java is fun", "Streams are powerful"]
+        // Output: ["Java", "is", "fun", "Streams", "are", "powerful"]
+        List<String> sentencesQ10 = Arrays.asList("Java is fun", "Streams are powerful");
+        List<String> resultQ10 = sentencesQ10.stream()
+                .flatMap(sentence -> Arrays.stream(sentence.split(" ")))
+                .collect(Collectors.toList());
+        System.out.println("Q10 Output: " + resultQ10); // Expected: ["Java", "is", "fun", "Streams", "are", "powerful"]
+    }
+}
