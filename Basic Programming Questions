@@ -21,6 +21,7 @@ public class EvenOdd {
 }
 
 //------------------------------------------------------------------------------------------------------------------------
+
 2. Check Positive, Negative or Zero
    Input: Any integer
    Output: "Positive", "Negative" or "Zero"
