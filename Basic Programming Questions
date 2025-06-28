@@ -212,6 +212,7 @@ public class TypeCastingExample {
 }
 
 //------------------------------------------------------------------------------------------------------------------------
+
 10. Check whether a number is a multiple of 3 or not using if-else
 
 import java.util.Scanner;
