@@ -279,6 +279,7 @@ public class Factorial {
 }
 
 //------------------------------------------------------------------------------------------------------------------------
+
  13. Write a program to reverse a number using while loop
     Input: 1234
     Output: 4321
