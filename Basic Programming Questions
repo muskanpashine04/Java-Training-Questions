@@ -3,7 +3,6 @@
    Output: "Even" or "Odd"
 
 
-
 import java.util.Scanner;
 
 public class EvenOdd {
