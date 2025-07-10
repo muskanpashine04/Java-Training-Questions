@@ -1,6 +1,7 @@
 1. Check Even or Odd using if-else
    Input: Any integer
-   Output: "Even" or "Odd"
+
+Output: "Even" or "Odd"
 
 import java.util.Scanner;
 public class EvenOdd {
