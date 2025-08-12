@@ -17,6 +17,7 @@ class Book {
     String author;
 }
 
+
 // 4. Create a class named Rectangle with instance variables length and width. Create an object and assign values to these variables. Print the area of the rectangle.
 class Rectangle {
     double length;
