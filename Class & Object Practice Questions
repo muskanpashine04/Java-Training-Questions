@@ -34,6 +34,7 @@ class BankAccount {
     double balance;
 }
 
+
 // 6. Create a class named Dog with an instance variable name. Create 3 objects of this class and assign different names to each. Print the names.
 class Dog {
     String name;
