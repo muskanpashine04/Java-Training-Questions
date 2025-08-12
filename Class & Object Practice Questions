@@ -10,6 +10,7 @@ class Car {
     String color;
 }
 
+
 // 3. Create a class named Book with two instance variables: title and author. Create an object and assign values to these variables. Print the values.
 class Book {
     String title;
