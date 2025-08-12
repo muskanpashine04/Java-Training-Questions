@@ -28,6 +28,7 @@ class Rectangle {
     }
 }
 
+
 // 5. Create a class named BankAccount with an instance variable balance. Create an object and assign an initial balance of 1000. Print the balance.
 class BankAccount {
     double balance;
