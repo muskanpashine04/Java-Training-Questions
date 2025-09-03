@@ -6,6 +6,7 @@ class Student {
 
 
 
+
 // 2. Create a class named Car with an instance variable color. Create an object of this class and assign the color "Red" to it. Print the color.
 class Car {
     String color;
