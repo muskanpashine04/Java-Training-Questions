@@ -8,6 +8,7 @@ Output even/odd
 
 
 
+
 import java.util.Scanner;
 public class EvenOdd {
 
