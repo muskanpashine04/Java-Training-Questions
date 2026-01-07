@@ -5,7 +5,6 @@ Output even/od
 
 
 
-
 import java.util.Scanner;
 public class EvenOdd {
 
