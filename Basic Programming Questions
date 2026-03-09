@@ -2,6 +2,7 @@
    Input: Any integer
 Output even/odd
 
+
 import java.util.Scanner;
 public class EvenOdd {
 
